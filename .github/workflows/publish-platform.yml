@@ -60,9 +60,9 @@ jobs:
       - name: Check if already published
         id: check
         run: |
-          PKG_NAME="oh-my-opencode-${{ matrix.platform }}"
+          PKG_NAME="@fuzen2478/only-my-opencode-${{ matrix.platform }}"
           VERSION="${{ inputs.version }}"
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://registry.npmjs.org/${PKG_NAME}/${VERSION}")
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode-${{ matrix.platform }}/${VERSION}")
           if [ "$STATUS" = "200" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "✓ ${PKG_NAME}@${VERSION} already published"
@@ -93,9 +93,9 @@ jobs:
           esac
           
           if [ "$PLATFORM" = "windows-x64" ]; then
-            OUTPUT="packages/${PLATFORM}/bin/oh-my-opencode.exe"
+            OUTPUT="packages/${PLATFORM}/bin/only-my-opencode.exe"
           else
-            OUTPUT="packages/${PLATFORM}/bin/oh-my-opencode"
+            OUTPUT="packages/${PLATFORM}/bin/only-my-opencode"
           fi
           
           bun build src/cli/index.ts --compile --minify --target=$TARGET --outfile=$OUTPUT

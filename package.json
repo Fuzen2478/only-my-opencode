@@ -1,12 +1,12 @@
 {
-  "name": "oh-my-opencode",
+  "name": "@fuzen2478/only-my-opencode",
   "version": "3.1.1",
   "description": "The Best AI Agent Harness - Batteries-Included OpenCode Plugin with Multi-Model Orchestration, Parallel Background Agents, and Crafted LSP/AST Tools",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "bin": {
-    "oh-my-opencode": "./bin/oh-my-opencode.js"
+    "only-my-opencode": "./bin/oh-my-opencode.js"
   },
   "files": [
     "dist",
@@ -40,16 +40,16 @@
     "ai",
     "llm"
   ],
-  "author": "YeonGyu-Kim",
+  "author": "fuzen2478",
   "license": "SUL-1.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/code-yeongyu/oh-my-opencode.git"
+    "url": "git+https://github.com/Fuzen2478/only-my-opencode.git"
   },
   "bugs": {
-    "url": "https://github.com/code-yeongyu/oh-my-opencode/issues"
+    "url": "https://github.com/Fuzen2478/only-my-opencode/issues"
   },
-  "homepage": "https://github.com/code-yeongyu/oh-my-opencode#readme",
+  "homepage": "https://github.com/Fuzen2478/only-my-opencode#readme",
   "dependencies": {
     "@ast-grep/cli": "^0.40.0",
     "@ast-grep/napi": "^0.40.0",
@@ -73,13 +73,13 @@
     "typescript": "^5.7.3"
   },
   "optionalDependencies": {
-    "oh-my-opencode-darwin-arm64": "3.1.1",
-    "oh-my-opencode-darwin-x64": "3.1.1",
-    "oh-my-opencode-linux-arm64": "3.1.1",
-    "oh-my-opencode-linux-arm64-musl": "3.1.1",
-    "oh-my-opencode-linux-x64": "3.1.1",
-    "oh-my-opencode-linux-x64-musl": "3.1.1",
-    "oh-my-opencode-windows-x64": "3.1.1"
+    "@fuzen2478/only-my-opencode-darwin-arm64": "3.1.1",
+    "@fuzen2478/only-my-opencode-darwin-x64": "3.1.1",
+    "@fuzen2478/only-my-opencode-linux-arm64": "3.1.1",
+    "@fuzen2478/only-my-opencode-linux-arm64-musl": "3.1.1",
+    "@fuzen2478/only-my-opencode-linux-x64": "3.1.1",
+    "@fuzen2478/only-my-opencode-linux-x64-musl": "3.1.1",
+    "@fuzen2478/only-my-opencode-windows-x64": "3.1.1"
   },
   "trustedDependencies": [
     "@ast-grep/cli",

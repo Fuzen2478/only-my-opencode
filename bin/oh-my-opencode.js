@@ -35,7 +35,7 @@ function main() {
   try {
     pkg = getPlatformPackage({ platform, arch, libcFamily });
   } catch (error) {
-    console.error(`\noh-my-opencode: ${error.message}\n`);
+    console.error(`\nonly-my-opencode: ${error.message}\n`);
     process.exit(1);
   }
   
@@ -46,7 +46,7 @@ function main() {
   try {
     binPath = require.resolve(binRelPath);
   } catch {
-    console.error(`\noh-my-opencode: Platform binary not installed.`);
+    console.error(`\nonly-my-opencode: Platform binary not installed.`);
     console.error(`\nYour platform: ${platform}-${arch}${libcFamily === "musl" ? "-musl" : ""}`);
     console.error(`Expected package: ${pkg}`);
     console.error(`\nTo fix, run:`);
@@ -61,7 +61,7 @@ function main() {
   
   // Handle spawn errors
   if (result.error) {
-    console.error(`\noh-my-opencode: Failed to execute binary.`);
+    console.error(`\nonly-my-opencode: Failed to execute binary.`);
     console.error(`Error: ${result.error.message}\n`);
     process.exit(2);
   }

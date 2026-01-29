@@ -68,7 +68,7 @@ jobs:
   publish-main:
     runs-on: ubuntu-latest
     needs: [test, typecheck]
-    if: github.repository == 'code-yeongyu/oh-my-opencode'
+    if: github.repository == 'Fuzen2478/only-my-opencode'
     outputs:
       version: ${{ steps.version.outputs.version }}
       dist_tag: ${{ steps.version.outputs.dist_tag }}
@@ -98,7 +98,7 @@ jobs:
         run: |
           VERSION="${{ inputs.version }}"
           if [ -z "$VERSION" ]; then
-            PREV=$(curl -s https://registry.npmjs.org/oh-my-opencode/latest | jq -r '.version // "0.0.0"')
+            PREV=$(curl -s https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode/latest | jq -r '.version // "0.0.0"')
             BASE="${PREV%%-*}"
             IFS='.' read -r MAJOR MINOR PATCH <<< "$BASE"
             case "${{ inputs.bump }}" in
@@ -122,10 +122,10 @@ jobs:
         id: check
         run: |
           VERSION="${{ steps.version.outputs.version }}"
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://registry.npmjs.org/oh-my-opencode/${VERSION}")
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode/${VERSION}")
           if [ "$STATUS" = "200" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
-            echo "✓ oh-my-opencode@${VERSION} already published"
+            echo "✓ @fuzen2478/only-my-opencode@${VERSION} already published"
           else
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
@@ -215,7 +215,7 @@ jobs:
           fi
           
           if [ -z "$PREV_TAG" ]; then
-            PREV_TAG=$(curl -s https://registry.npmjs.org/oh-my-opencode/latest | jq -r '.version // "0.0.0"')
+            PREV_TAG=$(curl -s https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode/latest | jq -r '.version // "0.0.0"')
           fi
           
           echo "Comparing v${PREV_TAG}..v${VERSION}"

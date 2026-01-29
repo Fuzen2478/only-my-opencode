@@ -23,7 +23,7 @@ export function getPlatformPackage({ platform, arch, libcFamily }) {
   
   // Map platform names: win32 -> windows (for package name)
   const os = platform === "win32" ? "windows" : platform;
-  return `oh-my-opencode-${os}-${arch}${suffix}`;
+  return `@fuzen2478/only-my-opencode-${os}-${arch}${suffix}`;
 }
 
 /**
@@ -34,5 +34,5 @@ export function getPlatformPackage({ platform, arch, libcFamily }) {
  */
 export function getBinaryPath(pkg, platform) {
   const ext = platform === "win32" ? ".exe" : "";
-  return `${pkg}/bin/oh-my-opencode${ext}`;
+  return `${pkg}/bin/only-my-opencode${ext}`;
 }
