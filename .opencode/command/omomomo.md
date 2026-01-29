@@ -1,5 +1,5 @@
 ---
-description: Easter egg command - about oh-my-opencode
+description: Easter egg command - about only-my-opencode
 ---
 
 <command-instruction>
@@ -28,10 +28,10 @@ Print the following message to the user EXACTLY as written (in a friendly, celeb
 
 Created with ❤️ by **[code-yeongyu](https://github.com/code-yeongyu)**
 
-🔗 **GitHub**: https://github.com/code-yeongyu/oh-my-opencode
+🔗 **GitHub**: https://github.com/code-yeongyu/only-my-opencode
 
 ---
 
-*Enjoy coding on steroids!* 🚀
+_Enjoy coding on steroids!_ 🚀
 
 </command-instruction>

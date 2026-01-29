@@ -1,29 +1,29 @@
 /**
- * Unified system directive prefix for oh-my-opencode internal messages.
+ * Unified system directive prefix for only-my-opencode internal messages.
  * All system-generated messages should use this prefix for consistent filtering.
  *
- * Format: [SYSTEM DIRECTIVE: OH-MY-OPENCODE - {TYPE}]
+ * Format: [SYSTEM DIRECTIVE: only-my-opencode - {TYPE}]
  */
 
-export const SYSTEM_DIRECTIVE_PREFIX = "[SYSTEM DIRECTIVE: OH-MY-OPENCODE"
+export const SYSTEM_DIRECTIVE_PREFIX = "[SYSTEM DIRECTIVE: only-my-opencode";
 
 /**
  * Creates a system directive header with the given type.
  * @param type - The directive type (e.g., "TODO CONTINUATION", "RALPH LOOP")
- * @returns Formatted directive string like "[SYSTEM DIRECTIVE: OH-MY-OPENCODE - TODO CONTINUATION]"
+ * @returns Formatted directive string like "[SYSTEM DIRECTIVE: only-my-opencode - TODO CONTINUATION]"
  */
 export function createSystemDirective(type: string): string {
-  return `${SYSTEM_DIRECTIVE_PREFIX} - ${type}]`
+  return `${SYSTEM_DIRECTIVE_PREFIX} - ${type}]`;
 }
 
 /**
- * Checks if a message starts with the oh-my-opencode system directive prefix.
+ * Checks if a message starts with the only-my-opencode system directive prefix.
  * Used by keyword-detector and other hooks to skip system-generated messages.
  * @param text - The message text to check
  * @returns true if the message is a system directive
  */
 export function isSystemDirective(text: string): boolean {
-  return text.trimStart().startsWith(SYSTEM_DIRECTIVE_PREFIX)
+  return text.trimStart().startsWith(SYSTEM_DIRECTIVE_PREFIX);
 }
 
 export const SystemDirectiveTypes = {
@@ -35,6 +35,7 @@ export const SystemDirectiveTypes = {
   COMPACTION_CONTEXT: "COMPACTION CONTEXT",
   CONTEXT_WINDOW_MONITOR: "CONTEXT WINDOW MONITOR",
   PROMETHEUS_READ_ONLY: "PROMETHEUS READ-ONLY",
-} as const
+} as const;
 
-export type SystemDirectiveType = (typeof SystemDirectiveTypes)[keyof typeof SystemDirectiveTypes]
+export type SystemDirectiveType =
+  (typeof SystemDirectiveTypes)[keyof typeof SystemDirectiveTypes];

@@ -1,13 +1,15 @@
 # SHARED UTILITIES KNOWLEDGE BASE
 
 ## OVERVIEW
+
 55 cross-cutting utilities: path resolution, token truncation, config parsing, model resolution.
 
 ## STRUCTURE
+
 ```
 shared/
 ├── tmux/                  # Tmux TUI integration (types, utils, constants)
-├── logger.ts              # File-based logging (/tmp/oh-my-opencode.log)
+├── logger.ts              # File-based logging (/tmp/only-my-opencode.log)
 ├── dynamic-truncator.ts   # Token-aware context window management (194 lines)
 ├── model-resolver.ts      # 3-step resolution (Override → Fallback → Default)
 ├── model-requirements.ts  # Agent/category model fallback chains (132 lines)
@@ -33,44 +35,49 @@ shared/
 ```
 
 ## MOST IMPORTED
-| Utility | Users | Purpose |
-|---------|-------|---------|
-| logger.ts | 16+ | Background task visibility |
-| system-directive.ts | 8+ | Message filtering |
-| opencode-config-dir.ts | 8+ | Path resolution |
-| permission-compat.ts | 6+ | Tool restrictions |
+
+| Utility                | Users | Purpose                    |
+| ---------------------- | ----- | -------------------------- |
+| logger.ts              | 16+   | Background task visibility |
+| system-directive.ts    | 8+    | Message filtering          |
+| opencode-config-dir.ts | 8+    | Path resolution            |
+| permission-compat.ts   | 6+    | Tool restrictions          |
 
 ## WHEN TO USE
-| Task | Utility |
-|------|---------|
-| Path Resolution | `getOpenCodeConfigDir()`, `getDataPath()` |
-| Token Truncation | `dynamicTruncate(ctx, sessionId, output)` |
-| Config Parsing | `readJsoncFile<T>(path)`, `parseJsonc(text)` |
-| Model Resolution | `resolveModelWithFallback(client, reqs, override)` |
-| Version Gating | `isOpenCodeVersionAtLeast(version)` |
-| YAML Metadata | `parseFrontmatter(content)` |
-| Tool Security | `createAgentToolAllowlist(tools)` |
-| System Messages | `createSystemDirective(type)`, `isSystemDirective(msg)` |
-| Deep Merge | `deepMerge(target, source)` |
+
+| Task             | Utility                                                 |
+| ---------------- | ------------------------------------------------------- |
+| Path Resolution  | `getOpenCodeConfigDir()`, `getDataPath()`               |
+| Token Truncation | `dynamicTruncate(ctx, sessionId, output)`               |
+| Config Parsing   | `readJsoncFile<T>(path)`, `parseJsonc(text)`            |
+| Model Resolution | `resolveModelWithFallback(client, reqs, override)`      |
+| Version Gating   | `isOpenCodeVersionAtLeast(version)`                     |
+| YAML Metadata    | `parseFrontmatter(content)`                             |
+| Tool Security    | `createAgentToolAllowlist(tools)`                       |
+| System Messages  | `createSystemDirective(type)`, `isSystemDirective(msg)` |
+| Deep Merge       | `deepMerge(target, source)`                             |
 
 ## KEY PATTERNS
 
 **3-Step Resolution** (Override → Fallback → Default):
+
 ```typescript
 const model = resolveModelWithFallback({
   userModel: config.agents.sisyphus.model,
   fallbackChain: AGENT_MODEL_REQUIREMENTS.sisyphus.fallbackChain,
   availableModels: fetchedModels,
-})
+});
 ```
 
 **System Directive Filtering**:
+
 ```typescript
-if (isSystemDirective(message)) return  // Skip system-generated
-const directive = createSystemDirective("TODO CONTINUATION")
+if (isSystemDirective(message)) return; // Skip system-generated
+const directive = createSystemDirective("TODO CONTINUATION");
 ```
 
 ## ANTI-PATTERNS
+
 - **Raw JSON.parse**: Use `jsonc-parser.ts` for comment support
 - **Hardcoded Paths**: Use `*-config-dir.ts` or `data-path.ts`
 - **console.log**: Use `logger.ts` for background task visibility

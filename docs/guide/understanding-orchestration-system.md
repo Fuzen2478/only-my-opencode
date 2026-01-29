@@ -27,11 +27,11 @@ flowchart TB
         Metis["🦉 Metis<br/>(Consultant)<br/>Claude Opus 4.5"]
         Momus["👁️ Momus<br/>(Reviewer)<br/>GPT-5.2"]
     end
-    
+
     subgraph Execution["Execution Layer (Orchestrator)"]
         Orchestrator["⚡ Atlas<br/>(Conductor)<br/>Claude Opus 4.5"]
     end
-    
+
     subgraph Workers["Worker Layer (Specialized Agents)"]
         Junior["🪨 Sisyphus-Junior<br/>(Task Executor)<br/>Claude Sonnet 4.5"]
         Oracle["🧠 Oracle<br/>(Architecture)<br/>GPT-5.2"]
@@ -39,23 +39,23 @@ flowchart TB
         Librarian["📚 Librarian<br/>(Docs/OSS)<br/>GLM-4.7"]
         Frontend["🎨 Frontend<br/>(UI/UX)<br/>Gemini 3 Pro"]
     end
-    
+
     User -->|"Describe work"| Prometheus
     Prometheus -->|"Consult"| Metis
     Prometheus -->|"Interview"| User
     Prometheus -->|"Generate plan"| Plan[".sisyphus/plans/*.md"]
     Plan -->|"High accuracy?"| Momus
     Momus -->|"OKAY / REJECT"| Prometheus
-    
+
     User -->|"/start-work"| Orchestrator
     Plan -->|"Read"| Orchestrator
-    
+
     Orchestrator -->|"delegate_task(category)"| Junior
     Orchestrator -->|"delegate_task(agent)"| Oracle
     Orchestrator -->|"delegate_task(agent)"| Explore
     Orchestrator -->|"delegate_task(agent)"| Librarian
     Orchestrator -->|"delegate_task(agent)"| Frontend
-    
+
     Junior -->|"Results + Learnings"| Orchestrator
     Oracle -->|"Advice"| Orchestrator
     Explore -->|"Code patterns"| Orchestrator
@@ -79,10 +79,10 @@ stateDiagram-v2
     Interview --> Research: Launch explore/librarian agents
     Research --> Interview: Gather codebase context
     Interview --> ClearanceCheck: After each response
-    
+
     ClearanceCheck --> Interview: Requirements unclear
     ClearanceCheck --> PlanGeneration: All requirements clear
-    
+
     state ClearanceCheck {
         [*] --> Check
         Check: ✓ Core objective defined?
@@ -91,17 +91,17 @@ stateDiagram-v2
         Check: ✓ Technical approach decided?
         Check: ✓ Test strategy confirmed?
     }
-    
+
     PlanGeneration --> MetisConsult: Mandatory gap analysis
     MetisConsult --> WritePlan: Incorporate findings
     WritePlan --> HighAccuracyChoice: Present to user
-    
+
     HighAccuracyChoice --> MomusLoop: User wants high accuracy
     HighAccuracyChoice --> Done: User accepts plan
-    
+
     MomusLoop --> WritePlan: REJECTED - fix issues
     MomusLoop --> Done: OKAY - plan approved
-    
+
     Done --> [*]: Guide to /start-work
 ```
 
@@ -109,12 +109,12 @@ stateDiagram-v2
 
 Prometheus adapts its interview style based on what you're doing:
 
-| Intent | Prometheus Focus | Example Questions |
-|--------|------------------|-------------------|
-| **Refactoring** | Safety - behavior preservation | "What tests verify current behavior?" "Rollback strategy?" |
-| **Build from Scratch** | Discovery - patterns first | "Found pattern X in codebase. Follow it or deviate?" |
-| **Mid-sized Task** | Guardrails - exact boundaries | "What must NOT be included? Hard constraints?" |
-| **Architecture** | Strategic - long-term impact | "Expected lifespan? Scale requirements?" |
+| Intent                 | Prometheus Focus               | Example Questions                                          |
+| ---------------------- | ------------------------------ | ---------------------------------------------------------- |
+| **Refactoring**        | Safety - behavior preservation | "What tests verify current behavior?" "Rollback strategy?" |
+| **Build from Scratch** | Discovery - patterns first     | "Found pattern X in codebase. Follow it or deviate?"       |
+| **Mid-sized Task**     | Guardrails - exact boundaries  | "What must NOT be included? Hard constraints?"             |
+| **Architecture**       | Strategic - long-term impact   | "Expected lifespan? Scale requirements?"                   |
 
 ### Metis: The Gap Analyzer
 
@@ -142,6 +142,7 @@ For high-accuracy mode, Momus validates plans against **four core criteria**:
 **The Momus Loop:**
 
 Momus only says "OKAY" when:
+
 - 100% of file references verified
 - ≥80% of tasks have clear reference sources
 - ≥90% of tasks have concrete acceptance criteria
@@ -168,25 +169,27 @@ flowchart LR
         Verify["5. Verify Results"]
         Report["6. Final Report"]
     end
-    
+
     Read --> Analyze
     Analyze --> Wisdom
     Wisdom --> Delegate
     Delegate --> Verify
     Verify -->|"More tasks"| Delegate
     Verify -->|"All done"| Report
-    
+
     Delegate -->|"background=false"| Workers["Workers"]
     Workers -->|"Results + Learnings"| Verify
 ```
 
 **What Orchestrator CAN do:**
+
 - ✅ Read files to understand context
 - ✅ Run commands to verify results
 - ✅ Use lsp_diagnostics to check for errors
 - ✅ Search patterns with grep/glob/ast-grep
 
 **What Orchestrator MUST delegate:**
+
 - ❌ Writing/editing code files
 - ❌ Fixing bugs
 - ❌ Creating tests
@@ -220,9 +223,9 @@ Independent tasks run in parallel:
 ```typescript
 // Orchestrator identifies parallelizable groups from plan
 // Group A: Tasks 2, 3, 4 (no file conflicts)
-delegate_task(category="ultrabrain", prompt="Task 2...")
-delegate_task(category="visual-engineering", prompt="Task 3...")
-delegate_task(category="general", prompt="Task 4...")
+delegate_task((category = "ultrabrain"), (prompt = "Task 2..."));
+delegate_task((category = "visual-engineering"), (prompt = "Task 3..."));
+delegate_task((category = "general"), (prompt = "Task 4..."));
 // All run simultaneously
 ```
 
@@ -242,6 +245,7 @@ Junior is the **workhorse** that actually writes code. Key characteristics:
 **Why Sonnet is Sufficient:**
 
 Junior doesn't need to be the smartest - it needs to be reliable. With:
+
 1. Detailed prompts from Orchestrator (50-200 lines)
 2. Accumulated wisdom passed forward
 3. Clear MUST DO / MUST NOT DO constraints
@@ -276,37 +280,37 @@ This "boulder pushing" mechanism is why the system is named after Sisyphus.
 
 ```typescript
 // OLD: Model name creates distributional bias
-delegate_task(agent="gpt-5.2", prompt="...")  // Model knows its limitations
-delegate_task(agent="claude-opus-4.5", prompt="...")  // Different self-perception
+delegate_task((agent = "gpt-5.2"), (prompt = "...")); // Model knows its limitations
+delegate_task((agent = "claude-opus-4.5"), (prompt = "...")); // Different self-perception
 ```
 
 **The Solution: Semantic Categories:**
 
 ```typescript
 // NEW: Category describes INTENT, not implementation
-delegate_task(category="ultrabrain", prompt="...")     // "Think strategically"
-delegate_task(category="visual-engineering", prompt="...")  // "Design beautifully"
-delegate_task(category="quick", prompt="...")          // "Just get it done fast"
+delegate_task((category = "ultrabrain"), (prompt = "...")); // "Think strategically"
+delegate_task((category = "visual-engineering"), (prompt = "...")); // "Design beautifully"
+delegate_task((category = "quick"), (prompt = "...")); // "Just get it done fast"
 ```
 
 ### Built-in Categories
 
-| Category | Model | When to Use |
-|----------|-------|-------------|
-| `visual-engineering` | Gemini 3 Pro | Frontend, UI/UX, design, styling, animation |
-| `ultrabrain` | GPT-5.2 Codex (xhigh) | Deep logical reasoning, complex architecture decisions |
-| `artistry` | Gemini 3 Pro (max) | Highly creative/artistic tasks, novel ideas |
-| `quick` | Claude Haiku 4.5 | Trivial tasks - single file changes, typo fixes |
-| `unspecified-low` | Claude Sonnet 4.5 | Tasks that don't fit other categories, low effort |
-| `unspecified-high` | Claude Opus 4.5 (max) | Tasks that don't fit other categories, high effort |
-| `writing` | Gemini 3 Flash | Documentation, prose, technical writing |
+| Category             | Model                 | When to Use                                            |
+| -------------------- | --------------------- | ------------------------------------------------------ |
+| `visual-engineering` | Gemini 3 Pro          | Frontend, UI/UX, design, styling, animation            |
+| `ultrabrain`         | GPT-5.2 Codex (xhigh) | Deep logical reasoning, complex architecture decisions |
+| `artistry`           | Gemini 3 Pro (max)    | Highly creative/artistic tasks, novel ideas            |
+| `quick`              | Claude Haiku 4.5      | Trivial tasks - single file changes, typo fixes        |
+| `unspecified-low`    | Claude Sonnet 4.5     | Tasks that don't fit other categories, low effort      |
+| `unspecified-high`   | Claude Opus 4.5 (max) | Tasks that don't fit other categories, high effort     |
+| `writing`            | Gemini 3 Flash        | Documentation, prose, technical writing                |
 
 ### Custom Categories
 
 You can define your own categories:
 
 ```json
-// .opencode/oh-my-opencode.json
+// .opencode/only-my-opencode.json
 {
   "categories": {
     "unity-game-dev": {
@@ -325,25 +329,25 @@ Skills prepend specialized instructions to subagent prompts:
 ```typescript
 // Category + Skill combination
 delegate_task(
-  category="visual-engineering", 
-  load_skills=["frontend-ui-ux"],  // Adds UI/UX expertise
-  prompt="..."
-)
+  (category = "visual-engineering"),
+  (load_skills = ["frontend-ui-ux"]), // Adds UI/UX expertise
+  (prompt = "..."),
+);
 
 delegate_task(
-  category="general",
-  load_skills=["playwright"],  // Adds browser automation expertise
-  prompt="..."
-)
+  (category = "general"),
+  (load_skills = ["playwright"]), // Adds browser automation expertise
+  (prompt = "..."),
+);
 ```
 
 **Example Evolution:**
 
-| Before | After |
-|--------|-------|
+| Before                                              | After                                                            |
+| --------------------------------------------------- | ---------------------------------------------------------------- |
 | Hardcoded: `frontend-ui-ux-engineer` (Gemini 3 Pro) | `category="visual-engineering" + load_skills=["frontend-ui-ux"]` |
-| One-size-fits-all | `category="visual-engineering" + load_skills=["unity-master"]` |
-| Model bias | Category-based: model abstraction eliminates bias |
+| One-size-fits-all                                   | `category="visual-engineering" + load_skills=["unity-master"]`   |
+| Model bias                                          | Category-based: model abstraction eliminates bias                |
 
 ---
 
@@ -355,33 +359,33 @@ sequenceDiagram
     participant Orchestrator as Atlas
     participant Junior as Sisyphus-Junior
     participant Notepad as .sisyphus/notepads/
-    
+
     User->>Orchestrator: /start-work
     Orchestrator->>Orchestrator: Read plan, build parallelization map
-    
+
     loop For each task (parallel when possible)
         Orchestrator->>Notepad: Read accumulated wisdom
         Orchestrator->>Orchestrator: Build 7-section prompt
-        
+
         Note over Orchestrator: Prompt Structure:<br/>1. TASK (exact checkbox)<br/>2. EXPECTED OUTCOME<br/>3. REQUIRED SKILLS<br/>4. REQUIRED TOOLS<br/>5. MUST DO<br/>6. MUST NOT DO<br/>7. CONTEXT + Wisdom
-        
+
         Orchestrator->>Junior: delegate_task(category, load_skills, prompt)
-        
+
         Junior->>Junior: Create todos, execute
         Junior->>Junior: Verify (lsp_diagnostics, tests)
         Junior->>Notepad: Append learnings
         Junior->>Orchestrator: Results + completion status
-        
+
         Orchestrator->>Orchestrator: Verify independently
         Note over Orchestrator: NEVER trust subagent claims<br/>Run lsp_diagnostics at PROJECT level<br/>Run full test suite<br/>Read actual changed files
-        
+
         alt Verification fails
             Orchestrator->>Junior: Re-delegate with failure context
         else Verification passes
             Orchestrator->>Orchestrator: Mark task complete, continue
         end
     end
-    
+
     Orchestrator->>User: Final report with all results
 ```
 
@@ -398,6 +402,7 @@ sequenceDiagram
 ### 2. Explicit Over Implicit
 
 Every Junior prompt includes:
+
 - Exact task from plan
 - Clear success criteria
 - Forbidden actions
@@ -409,6 +414,7 @@ No assumptions. No guessing.
 ### 3. Trust But Verify
 
 The Orchestrator **never trusts subagent claims**:
+
 - Runs `lsp_diagnostics` at project level
 - Executes full test suite
 - Reads actual file changes
@@ -417,6 +423,7 @@ The Orchestrator **never trusts subagent claims**:
 ### 4. Model Optimization
 
 Expensive models (Opus, GPT-5.2) used only where needed:
+
 - Planning decisions (once per project)
 - Debugging consultation (rare)
 - Complex architecture (rare)

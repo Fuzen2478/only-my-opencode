@@ -1,12 +1,12 @@
-# Oh-My-OpenCode Orchestration Guide
+# only-my-opencode Orchestration Guide
 
 ## TL;DR - When to Use What
 
-| Complexity | Approach | When to Use |
-|------------|----------|-------------|
-| **Simple** | Just prompt | Simple tasks, quick fixes, single-file changes |
-| **Complex + Lazy** | Just type `ulw` or `ultrawork` | Complex tasks where explaining context is tedious. Agent figures it out. |
-| **Complex + Precise** | `@plan` → `/start-work` | Precise, multi-step work requiring true orchestration. Prometheus plans, Atlas executes. |
+| Complexity            | Approach                       | When to Use                                                                              |
+| --------------------- | ------------------------------ | ---------------------------------------------------------------------------------------- |
+| **Simple**            | Just prompt                    | Simple tasks, quick fixes, single-file changes                                           |
+| **Complex + Lazy**    | Just type `ulw` or `ultrawork` | Complex tasks where explaining context is tedious. Agent figures it out.                 |
+| **Complex + Precise** | `@plan` → `/start-work`        | Precise, multi-step work requiring true orchestration. Prometheus plans, Atlas executes. |
 
 **Decision Flow:**
 
@@ -22,13 +22,13 @@ Is it a quick fix or simple task?
 
 ---
 
-This document provides a comprehensive guide to the orchestration system that implements Oh-My-OpenCode's core philosophy: **"Separation of Planning and Execution"**.
+This document provides a comprehensive guide to the orchestration system that implements only-my-opencode's core philosophy: **"Separation of Planning and Execution"**.
 
 ## 1. Overview
 
 Traditional AI agents often mix planning and execution, leading to context pollution, goal drift, and AI slop (low-quality code).
 
-Oh-My-OpenCode solves this by clearly separating two roles:
+only-my-opencode solves this by clearly separating two roles:
 
 1. **Prometheus (Planner)**: A pure strategist who never writes code. Establishes perfect plans through interviews and analysis.
 2. **Atlas (Executor)**: An orchestrator who executes plans. Delegates work to specialized agents and never stops until completion.
@@ -40,7 +40,7 @@ Oh-My-OpenCode solves this by clearly separating two roles:
 ```mermaid
 flowchart TD
     User[User Request] --> Prometheus
-    
+
     subgraph Planning Phase
         Prometheus[Prometheus<br>Planner] --> Metis[Metis<br>Consultant]
         Metis --> Prometheus
@@ -48,10 +48,10 @@ flowchart TD
         Momus --> Prometheus
         Prometheus --> PlanFile["/.sisyphus/plans/{name}.md"]
     end
-    
+
     PlanFile --> StartWork[//start-work/]
     StartWork --> BoulderState[boulder.json]
-    
+
     subgraph Execution Phase
         BoulderState --> Atlas[Atlas<br>Orchestrator]
         Atlas --> Oracle[Oracle]
@@ -139,21 +139,21 @@ Executes the generated plan.
 
 ## 6. Configuration Guide
 
-You can control related features in `oh-my-opencode.json`.
+You can control related features in `only-my-opencode.json`.
 
 ```jsonc
 {
   "sisyphus_agent": {
-    "disabled": false,           // Enable Atlas orchestration (default: false)
-    "planner_enabled": true,     // Enable Prometheus (default: true)
-    "replace_plan": true         // Replace default plan agent with Prometheus (default: true)
+    "disabled": false, // Enable Atlas orchestration (default: false)
+    "planner_enabled": true, // Enable Prometheus (default: true)
+    "replace_plan": true, // Replace default plan agent with Prometheus (default: true)
   },
-  
+
   // Hook settings (add to disable)
   "disabled_hooks": [
     // "start-work",             // Disable execution trigger
     // "prometheus-md-only"      // Remove Prometheus write restrictions (not recommended)
-  ]
+  ],
 }
 ```
 

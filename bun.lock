@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "oh-my-opencode",
+      "name": "only-my-opencode",
       "dependencies": {
         "@ast-grep/cli": "^0.40.0",
         "@ast-grep/napi": "^0.40.0",

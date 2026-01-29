@@ -1,95 +1,95 @@
-# Oh-My-OpenCode CLI Guide
+# only-my-opencode CLI Guide
 
-This document provides a comprehensive guide to using the Oh-My-OpenCode CLI tools.
+This document provides a comprehensive guide to using the only-my-opencode CLI tools.
 
 ## 1. Overview
 
-Oh-My-OpenCode provides CLI tools accessible via the `bunx oh-my-opencode` command. The CLI supports various features including plugin installation, environment diagnostics, and session execution.
+only-my-opencode provides CLI tools accessible via the `bunx only-my-opencode` command. The CLI supports various features including plugin installation, environment diagnostics, and session execution.
 
 ```bash
 # Basic execution (displays help)
-bunx oh-my-opencode
+bunx only-my-opencode
 
 # Or run with npx
-npx oh-my-opencode
+npx only-my-opencode
 ```
 
 ---
 
 ## 2. Available Commands
 
-| Command | Description |
-|---------|-------------|
-| `install` | Interactive Setup Wizard |
-| `doctor` | Environment diagnostics and health checks |
-| `run` | OpenCode session runner |
-| `auth` | Google Antigravity authentication management |
-| `version` | Display version information |
+| Command   | Description                                  |
+| --------- | -------------------------------------------- |
+| `install` | Interactive Setup Wizard                     |
+| `doctor`  | Environment diagnostics and health checks    |
+| `run`     | OpenCode session runner                      |
+| `auth`    | Google Antigravity authentication management |
+| `version` | Display version information                  |
 
 ---
 
 ## 3. `install` - Interactive Setup Wizard
 
-An interactive installation tool for initial Oh-My-OpenCode setup. Provides a beautiful TUI (Text User Interface) based on `@clack/prompts`.
+An interactive installation tool for initial only-my-opencode setup. Provides a beautiful TUI (Text User Interface) based on `@clack/prompts`.
 
 ### Usage
 
 ```bash
-bunx oh-my-opencode install
+bunx only-my-opencode install
 ```
 
 ### Installation Process
 
 1. **Provider Selection**: Choose your AI provider from Claude, ChatGPT, or Gemini.
 2. **API Key Input**: Enter the API key for your selected provider.
-3. **Configuration File Creation**: Generates `opencode.json` or `oh-my-opencode.json` files.
-4. **Plugin Registration**: Automatically registers the oh-my-opencode plugin in OpenCode settings.
+3. **Configuration File Creation**: Generates `opencode.json` or `only-my-opencode.json` files.
+4. **Plugin Registration**: Automatically registers the only-my-opencode plugin in OpenCode settings.
 
 ### Options
 
-| Option | Description |
-|--------|-------------|
-| `--no-tui` | Run in non-interactive mode without TUI (for CI/CD environments) |
-| `--verbose` | Display detailed logs |
+| Option      | Description                                                      |
+| ----------- | ---------------------------------------------------------------- |
+| `--no-tui`  | Run in non-interactive mode without TUI (for CI/CD environments) |
+| `--verbose` | Display detailed logs                                            |
 
 ---
 
 ## 4. `doctor` - Environment Diagnostics
 
-Diagnoses your environment to ensure Oh-My-OpenCode is functioning correctly. Performs 17+ health checks.
+Diagnoses your environment to ensure only-my-opencode is functioning correctly. Performs 17+ health checks.
 
 ### Usage
 
 ```bash
-bunx oh-my-opencode doctor
+bunx only-my-opencode doctor
 ```
 
 ### Diagnostic Categories
 
-| Category | Check Items |
-|----------|-------------|
-| **Installation** | OpenCode version (>= 1.0.150), plugin registration status |
-| **Configuration** | Configuration file validity, JSONC parsing |
-| **Authentication** | Anthropic, OpenAI, Google API key validity |
-| **Dependencies** | Bun, Node.js, Git installation status |
-| **Tools** | LSP server status, MCP server status |
-| **Updates** | Latest version check |
+| Category           | Check Items                                               |
+| ------------------ | --------------------------------------------------------- |
+| **Installation**   | OpenCode version (>= 1.0.150), plugin registration status |
+| **Configuration**  | Configuration file validity, JSONC parsing                |
+| **Authentication** | Anthropic, OpenAI, Google API key validity                |
+| **Dependencies**   | Bun, Node.js, Git installation status                     |
+| **Tools**          | LSP server status, MCP server status                      |
+| **Updates**        | Latest version check                                      |
 
 ### Options
 
-| Option | Description |
-|--------|-------------|
+| Option              | Description                                                      |
+| ------------------- | ---------------------------------------------------------------- |
 | `--category <name>` | Check specific category only (e.g., `--category authentication`) |
-| `--json` | Output results in JSON format |
-| `--verbose` | Include detailed information |
+| `--json`            | Output results in JSON format                                    |
+| `--verbose`         | Include detailed information                                     |
 
 ### Example Output
 
 ```
-oh-my-opencode doctor
+only-my-opencode doctor
 
 ┌──────────────────────────────────────────────────┐
-│  Oh-My-OpenCode Doctor                           │
+│  only-my-opencode Doctor                           │
 └──────────────────────────────────────────────────┘
 
 Installation
@@ -97,7 +97,7 @@ Installation
   ✓ Plugin registered in opencode.json
 
 Configuration
-  ✓ oh-my-opencode.json is valid
+  ✓ only-my-opencode.json is valid
   ⚠ categories.visual-engineering: using default model
 
 Authentication
@@ -122,15 +122,15 @@ Executes OpenCode sessions and monitors task completion.
 ### Usage
 
 ```bash
-bunx oh-my-opencode run [prompt]
+bunx only-my-opencode run [prompt]
 ```
 
 ### Options
 
-| Option | Description |
-|--------|-------------|
+| Option                 | Description                                       |
+| ---------------------- | ------------------------------------------------- |
 | `--enforce-completion` | Keep session active until all TODOs are completed |
-| `--timeout <seconds>` | Set maximum execution time |
+| `--timeout <seconds>`  | Set maximum execution time                        |
 
 ---
 
@@ -142,13 +142,13 @@ Manages Google Antigravity OAuth authentication. Required for using Gemini model
 
 ```bash
 # Login
-bunx oh-my-opencode auth login
+bunx only-my-opencode auth login
 
 # Logout
-bunx oh-my-opencode auth logout
+bunx only-my-opencode auth logout
 
 # Check current status
-bunx oh-my-opencode auth status
+bunx only-my-opencode auth status
 ```
 
 ---
@@ -157,8 +157,8 @@ bunx oh-my-opencode auth status
 
 The CLI searches for configuration files in the following locations (in priority order):
 
-1. **Project Level**: `.opencode/oh-my-opencode.json`
-2. **User Level**: `~/.config/opencode/oh-my-opencode.json`
+1. **Project Level**: `.opencode/only-my-opencode.json`
+2. **User Level**: `~/.config/opencode/only-my-opencode.json`
 
 ### JSONC Support
 
@@ -171,7 +171,7 @@ Configuration files support **JSONC (JSON with Comments)** format. You can use c
     "disabled": false,
     "planner_enabled": true,
   },
-  
+
   /* Category customization */
   "categories": {
     "visual-engineering": {
@@ -198,17 +198,17 @@ bun install -g opencode@latest
 
 ```bash
 # Reinstall plugin
-bunx oh-my-opencode install
+bunx only-my-opencode install
 ```
 
 ### Doctor Check Failures
 
 ```bash
 # Diagnose with detailed information
-bunx oh-my-opencode doctor --verbose
+bunx only-my-opencode doctor --verbose
 
 # Check specific category only
-bunx oh-my-opencode doctor --category authentication
+bunx only-my-opencode doctor --category authentication
 ```
 
 ---
@@ -219,10 +219,10 @@ Use the `--no-tui` option for CI/CD environments.
 
 ```bash
 # Run doctor in CI environment
-bunx oh-my-opencode doctor --no-tui --json
+bunx only-my-opencode doctor --no-tui --json
 
 # Save results to file
-bunx oh-my-opencode doctor --json > doctor-report.json
+bunx only-my-opencode doctor --json > doctor-report.json
 ```
 
 ---
@@ -248,25 +248,25 @@ src/cli/
 1. Create `src/cli/doctor/checks/my-check.ts`:
 
 ```typescript
-import type { DoctorCheck } from "../types"
+import type { DoctorCheck } from "../types";
 
 export const myCheck: DoctorCheck = {
   name: "my-check",
   category: "environment",
   check: async () => {
     // Check logic
-    const isOk = await someValidation()
-    
+    const isOk = await someValidation();
+
     return {
       status: isOk ? "pass" : "fail",
       message: isOk ? "Everything looks good" : "Something is wrong",
-    }
+    };
   },
-}
+};
 ```
 
 2. Register in `src/cli/doctor/checks/index.ts`:
 
 ```typescript
-export { myCheck } from "./my-check"
+export { myCheck } from "./my-check";
 ```

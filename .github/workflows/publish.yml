@@ -112,14 +112,14 @@ jobs:
             esac
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          
+
           if [[ "$VERSION" == *"-"* ]]; then
             DIST_TAG=$(echo "$VERSION" | cut -d'-' -f2 | cut -d'.' -f1)
             echo "dist_tag=${DIST_TAG:-next}" >> $GITHUB_OUTPUT
           else
             echo "dist_tag=" >> $GITHUB_OUTPUT
           fi
-          
+
           echo "Version: $VERSION"
 
       - name: Check if already published
@@ -141,12 +141,12 @@ jobs:
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           jq --arg v "$VERSION" '.version = $v' package.json > tmp.json && mv tmp.json package.json
-          
+
           for platform in darwin-arm64 darwin-x64 linux-x64 linux-arm64 linux-x64-musl linux-arm64-musl windows-x64; do
             jq --arg v "$VERSION" '.version = $v' "packages/${platform}/package.json" > tmp.json
             mv tmp.json "packages/${platform}/package.json"
           done
-          
+
           jq --arg v "$VERSION" '.optionalDependencies = (.optionalDependencies | to_entries | map(.value = $v) | from_entries)' package.json > tmp.json && mv tmp.json package.json
 
       - name: Build main package
@@ -173,7 +173,7 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add package.json assets/oh-my-opencode.schema.json packages/*/package.json || true
+          git add package.json assets/only-my-opencode.schema.json packages/*/package.json || true
           git diff --cached --quiet || git commit -m "release: v${{ steps.version.outputs.version }}"
           git tag -f "v${{ steps.version.outputs.version }}"
           git push origin --tags --force
@@ -208,7 +208,7 @@ jobs:
         id: changelog
         run: |
           VERSION="${{ needs.publish-main.outputs.version }}"
-          
+
           PREV_TAG=""
           if [[ "$VERSION" == *"-beta."* ]]; then
             BASE="${VERSION%-beta.*}"
@@ -219,17 +219,17 @@ jobs:
               git rev-parse "v${PREV_TAG}" >/dev/null 2>&1 || PREV_TAG=""
             fi
           fi
-          
+
           if [ -z "$PREV_TAG" ]; then
             # Try to get from GitHub Packages
             PREV_TAG=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
               "https://npm.pkg.github.com/@fuzen2478/only-my-opencode" 2>/dev/null | jq -r '.["dist-tags"].latest // "0.0.0"' 2>/dev/null || echo "0.0.0")
           fi
-          
+
           echo "Comparing v${PREV_TAG}..v${VERSION}"
-          
+
           NOTES=$(git log "v${PREV_TAG}..v${VERSION}" --oneline --format="- %h %s" 2>/dev/null | grep -vE "^- \w+ (ignore:|test:|chore:|ci:|release:)" || echo "No notable changes")
-          
+
           echo "$NOTES" > /tmp/changelog.md
 
       - name: Create GitHub release

@@ -7,43 +7,44 @@
 >
 > 사칭 사이트는 유료 벽 뒤에 있어 **배포하는 내용을 확인할 수 없습니다.** 해당 사이트의 다운로드는 **잠재적으로 위험한 것으로 간주**하세요.
 >
-> ✅ 공식 다운로드: https://github.com/code-yeongyu/oh-my-opencode/releases
+> ✅ 공식 다운로드: https://github.com/code-yeongyu/only-my-opencode/releases
 
 > [!NOTE]
 >
 > [![Sisyphus Labs — Sisyphus is the agent that codes like your team.](./.github/assets/sisyphuslabs.png?v=2)](https://sisyphuslabs.ai)
+>
 > > **Sisyphus의 완전한 제품화 버전을 구축하여 프론티어 에이전트의 미래를 정의하고 있습니다. <br />[여기서](https://sisyphuslabs.ai) 대기 명단에 등록하세요.**
 >
 > [!TIP]
 >
-> [![Oh My OpenCode 3.0이 정식 출시되었습니다!](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/code-yeongyu/oh-my-opencode/releases/tag/v3.0.0)
-> > **Oh My OpenCode 3.0이 정식 출시되었습니다! `oh-my-opencode@latest`를 사용하여 설치하세요.**
+> [![Oh My OpenCode 3.0이 정식 출시되었습니다!](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/code-yeongyu/only-my-opencode/releases/tag/v3.0.0)
+>
+> > **Oh My OpenCode 3.0이 정식 출시되었습니다! `only-my-opencode@latest`를 사용하여 설치하세요.**
 >
 > 함께해요!
 >
-> | [<img alt="Discord link" src="https://img.shields.io/discord/1452487457085063218?color=5865F2&label=discord&labelColor=black&logo=discord&logoColor=white&style=flat-square" width="156px" />](https://discord.gg/PUwSMR9XNk) | 기여자와 동료 `oh-my-opencode` 사용자와 연결하려면 [Discord 커뮤니티](https://discord.gg/PUwSMR9XNk)에 가입하세요. |
-> | :-----| :----- |
-> | [<img alt="X link" src="https://img.shields.io/badge/Follow-%40justsisyphus-00CED1?style=flat-square&logo=x&labelColor=black" width="156px" />](https://x.com/justsisyphus) | `oh-my-opencode`에 대한 뉴스와 업데이트가 제 X 계정에 게시되었습니다. <br /> 실수로 정지된 이후, [@justsisyphus](https://x.com/justsisyphus)가 제 대신 업데이트를 게시합니다. |
-> | [<img alt="GitHub Follow" src="https://img.shields.io/github/followers/code-yeongyu?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/code-yeongyu) | 더 많은 프로젝트를 위해 GitHub에서 [@code-yeongyu](https://github.com/code-yeongyu)를 팔로우하세요. |
+> | [<img alt="Discord link" src="https://img.shields.io/discord/1452487457085063218?color=5865F2&label=discord&labelColor=black&logo=discord&logoColor=white&style=flat-square" width="156px" />](https://discord.gg/PUwSMR9XNk) | 기여자와 동료 `only-my-opencode` 사용자와 연결하려면 [Discord 커뮤니티](https://discord.gg/PUwSMR9XNk)에 가입하세요.                                                            |
+> | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+> | [<img alt="X link" src="https://img.shields.io/badge/Follow-%40justsisyphus-00CED1?style=flat-square&logo=x&labelColor=black" width="156px" />](https://x.com/justsisyphus)                                                   | `only-my-opencode`에 대한 뉴스와 업데이트가 제 X 계정에 게시되었습니다. <br /> 실수로 정지된 이후, [@justsisyphus](https://x.com/justsisyphus)가 제 대신 업데이트를 게시합니다. |
+> | [<img alt="GitHub Follow" src="https://img.shields.io/github/followers/code-yeongyu?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/code-yeongyu)                           | 더 많은 프로젝트를 위해 GitHub에서 [@code-yeongyu](https://github.com/code-yeongyu)를 팔로우하세요.                                                                             |
 
 <!-- <CENTERED SECTION FOR GITHUB DISPLAY> -->
 
 <div align="center">
 
-[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/code-yeongyu/oh-my-opencode#oh-my-opencode)
+[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
 
-[![Preview](./.github/assets/omo.png)](https://github.com/code-yeongyu/oh-my-opencode#oh-my-opencode)
-
+[![Preview](./.github/assets/omo.png)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
 
 </div>
 
-> 이것은 코딩을 스테로이드로 만드는 것 — 실제로 작동하는 `oh-my-opencode`입니다. 백그라운드 에이전트 실행, 오라클, 라이브러리언, 프론트엔드 엔지니어와 같은 전문 에이전트 호출. 정교하게 제작된 LSP/AST 도구, 큐레이팅된 MCP, 완전한 Claude Code 호환 계층 사용.
+> 이것은 코딩을 스테로이드로 만드는 것 — 실제로 작동하는 `only-my-opencode`입니다. 백그라운드 에이전트 실행, 오라클, 라이브러리언, 프론트엔드 엔지니어와 같은 전문 에이전트 호출. 정교하게 제작된 LSP/AST 도구, 큐레이팅된 MCP, 완전한 Claude Code 호환 계층 사용.
 
 # Claude OAuth 액세스 공지
 
 ## TL;DR
 
-> Q. oh-my-opencode를 사용할 수 있나요?
+> Q. only-my-opencode를 사용할 수 있나요?
 
 네.
 
@@ -55,7 +56,7 @@
 
 > 2026년 1월 현재, Anthropic은 ToS 위반을 이유로 제3자 OAuth 액세스를 제한했습니다.
 >
-> [**Anthropic은 이 프로젝트 oh-my-opencode를 opencode 차단의 정당화로 인용했습니다.**](https://x.com/thdxr/status/2010149530486911014)
+> [**Anthropic은 이 프로젝트 only-my-opencode를 opencode 차단의 정당화로 인용했습니다.**](https://x.com/thdxr/status/2010149530486911014)
 >
 > 실제로 커뮤니티에는 Claude Code의 oauth 요청 서명을 위조하는 일부 플러그인이 존재합니다.
 >
@@ -63,20 +64,19 @@
 >
 > 이 프로젝트는 공식이 아닌 도구 사용으로 발생하는 모든 문제에 대해 책임지지 않으며, **우리는 해당 oauth 시스템에 대한 사용자 정의 구현이 없습니다.**
 
-
 <div align="center">
 
-[![GitHub Release](https://img.shields.io/github/v/release/code-yeongyu/oh-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/code-yeongyu/oh-my-opencode/releases)
-[![npm downloads](https://img.shields.io/npm/dt/oh-my-opencode?color=ff6b35&labelColor=black&style=flat-square)](https://www.npmjs.com/package/oh-my-opencode)
-[![GitHub Contributors](https://img.shields.io/github/contributors/code-yeongyu/oh-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/oh-my-opencode/graphs/contributors)
-[![GitHub Forks](https://img.shields.io/github/forks/code-yeongyu/oh-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/oh-my-opencode/network/members)
-[![GitHub Stars](https://img.shields.io/github/stars/code-yeongyu/oh-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/oh-my-opencode/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/code-yeongyu/oh-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/oh-my-opencode/issues)
-[![License](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/code-yeongyu/oh-my-opencode/blob/master/LICENSE.md)
+[![GitHub Release](https://img.shields.io/github/v/release/code-yeongyu/only-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/releases)
+[![npm downloads](https://img.shields.io/npm/dt/only-my-opencode?color=ff6b35&labelColor=black&style=flat-square)](https://www.npmjs.com/package/only-my-opencode)
+[![GitHub Contributors](https://img.shields.io/github/contributors/code-yeongyu/only-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/graphs/contributors)
+[![GitHub Forks](https://img.shields.io/github/forks/code-yeongyu/only-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/network/members)
+[![GitHub Stars](https://img.shields.io/github/stars/code-yeongyu/only-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/code-yeongyu/only-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/issues)
+[![License](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/blob/master/LICENSE.md)
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-cn.md)
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/code-yeongyu/oh-my-opencode)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/code-yeongyu/only-my-opencode)
 
 </div>
 
@@ -92,10 +92,10 @@
 
 > "Ohmyopencode와 ralph 루프를 사용하여 하룻밤 사이에 45,000줄의 tauri 앱을 SaaS 웹 앱으로 변환했습니다. 인터뷰 프롬프트로 시작하여 질문에 대한 등급과 추천을 물어봤습니다. 그것이 작동하는 모습을 보는 것은 놀라웠고, 이 아침에 기본적으로 작동하는 웹사이트로 깨어나는 것이었습니다!" - [James Hargis](https://x.com/hargabyte/status/2007299688261882202)
 
-> "oh-my-opencode를 사용하세요, 다시는 돌아갈 수 없을 것입니다" — [d0t3ch](https://x.com/d0t3ch/status/2001685618200580503)
+> "only-my-opencode를 사용하세요, 다시는 돌아갈 수 없을 것입니다" — [d0t3ch](https://x.com/d0t3ch/status/2001685618200580503)
 
 > "아직 왜 그렇게 훌륭한지 정확히 설명할 수 없지만, 개발 경험이 완전히 다른 차원에 도달했습니다." - [
-苔硯:こけすずり](https://x.com/kokesuzuri/status/2008532913961529372?s=20)
+> 苔硯:こけすずり](https://x.com/kokesuzuri/status/2008532913961529372?s=20)
 
 > "이번 주말에 open code, oh my opencode, supermemory으로 마인크래프트/소울스 같은 기괴한 것을 만들고 있습니다."
 > "점심 후 산책을 가는 동안 웅크림 애니메이션을 추가하도록 요청 중입니다. [동영상]" - [MagiMetal](https://x.com/MagiMetal/status/2005374704178373023)
@@ -110,7 +110,7 @@
 
 ## 목차
 
-- [Oh My OpenCode](#oh-my-opencode)
+- [Oh My OpenCode](#only-my-opencode)
   - [이 README를 읽지 않고 건너뛰세요](#이-readme를-읽지-않고-건너뛰세요)
     - [에이전트의 시대입니다](#에이전트의-시대입니다)
     - [🪄 마법의 단어: `ultrawork`](#-마법의-단어-ultrawork)
@@ -120,22 +120,22 @@
     - [인간을 위한](#인간을-위한)
     - [LLM 에이전트를 위한](#llm-에이전트를-위한)
   - [제거](#제거)
-   - [기능](#기능)
-   - [구성](#구성)
-    - [JSONC 지원](#jsonc-지원)
-    - [Google 인증](#google-인증)
-    - [에이전트](#에이전트)
-      - [권한 옵션](#권한-옵션)
-    - [내장 스킬](#내장-스킬)
-    - [Git Master](#git-master)
-    - [Sisyphus 에이전트](#sisyphus-에이전트)
-    - [백그라운드 작업](#백그라운드-작업)
-    - [카테고리](#카테고리)
-    - [훅](#훅)
-    - [MCP](#mcp)
-    - [LSP](#lsp)
-    - [실험적 기능](#실험적-기능)
-    - [환경 변수](#환경-변수)
+  - [기능](#기능)
+  - [구성](#구성)
+  - [JSONC 지원](#jsonc-지원)
+  - [Google 인증](#google-인증)
+  - [에이전트](#에이전트)
+    - [권한 옵션](#권한-옵션)
+  - [내장 스킬](#내장-스킬)
+  - [Git Master](#git-master)
+  - [Sisyphus 에이전트](#sisyphus-에이전트)
+  - [백그라운드 작업](#백그라운드-작업)
+  - [카테고리](#카테고리)
+  - [훅](#훅)
+  - [MCP](#mcp)
+  - [LSP](#lsp)
+  - [실험적 기능](#실험적-기능)
+  - [환경 변수](#환경-변수)
   - [작성자의 메모](#작성자의-메모)
   - [경고](#경고)
   - [다음 기업 전문가들이 사랑합니다](#다음-기업-전문가들이-사랑합니다)
@@ -165,6 +165,7 @@ Windows에서 Linux로 처음 전환했던 때를 기억하나요? 원하는 대
 ## 이 README를 읽지 않고 건너뛰세요
 
 ### 에이전트의 시대입니다
+
 - **Claude Code / AmpCode / Factory Droid / Cursor에 이 링크를 붙여넣고 설명하도록 요청하세요.**
   - 왜 좋은지, 왜 그저 또 다른 상용구 설정이 아닌지, 실제로 무엇이 좋아지는지 물어보세요.
   - LLM 에이전트라면 이 프로젝트로 지금 가능한 것을 사용자에게 설명하세요.
@@ -172,7 +173,7 @@ Windows에서 Linux로 처음 전환했던 때를 기억하나요? 원하는 대
 다음과 같이:
 
 ```
-Hey please read this readme and tell me why it is different from other agent harness? why is this actually good? https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/dev/README.md
+Hey please read this readme and tell me why it is different from other agent harness? why is this actually good? https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/dev/README.md
 ```
 
 ### 🪄 마법의 단어: `ultrawork`
@@ -191,7 +192,7 @@ Hey please read this readme and tell me why it is different from other agent har
 
 우리의 주요 에이전트를 만나보세요: Sisyphus (Opus 4.5 High). 아래는 Sisyphus가 그 바위를 굴리는 데 사용하는 도구입니다.
 
-*아래의 모든 것은 사용자 정의 가능합니다. 원하는 것을 가져가세요. 모든 기능은 기본적으로 활성화됩니다. 아무것도 할 필요가 없습니다. 포함되어 있으며, 즉시 작동합니다.*
+_아래의 모든 것은 사용자 정의 가능합니다. 원하는 것을 가져가세요. 모든 기능은 기본적으로 활성화됩니다. 아무것도 할 필요가 없습니다. 포함되어 있으며, 즉시 작동합니다._
 
 - Sisyphus의 팀원 (큐레이팅된 에이전트)
   - Oracle: 디자인, 디버깅 (GPT 5.2 Medium)
@@ -226,12 +227,7 @@ Hey please read this readme and tell me why it is different from other agent har
 1. 솔직히, 문서를 읽을 필요조차 없습니다. 프롬프트를 작성하세요. 'ultrawork' 키워드를 포함하세요. Sisyphus는 구조를 분석하고, 컨텍스트를 수집하고, 외부 소스 코드를 파헤치고, 작업이 100% 완료될 때까지 계속 바위를 굴립니다.
 1. 사실, 'ultrawork'를 입력하는 것도 너무 많은 노력입니다. 'ulw'를 입력하세요. 그냥 ulw. 커피를 마시세요. 작업이 완료되었습니다.
 
-무언가를 찾아야 하나요? 공식 문서, 전체 코드베이스 기록, 공개 GitHub 구현을 검색합니다 — grep뿐만 아니라 내장 LSP 도구와 AST-Grep을 사용합니다.
-3. LLM에 위임할 때 컨텍스트 관리에 대해 걱정하지 마세요. 내가 다 처리했습니다.
-    - OhMyOpenCode는 컨텍스트 부하를 줄이기 위해 공격적으로 여러 에이전트를 활용합니다.
-    - **이제 귀하의 에이전트는 개발 팀 리드입니다. 당신은 AI 매니저입니다.**
-4. 작업이 완료될 때까지 멈추지 않습니다.
-5. 이 프로젝트에 깊이 파고들고 싶지 않나요? 문제 없습니다. 'ultrathink'를 입력하세요.
+무언가를 찾아야 하나요? 공식 문서, 전체 코드베이스 기록, 공개 GitHub 구현을 검색합니다 — grep뿐만 아니라 내장 LSP 도구와 AST-Grep을 사용합니다. 3. LLM에 위임할 때 컨텍스트 관리에 대해 걱정하지 마세요. 내가 다 처리했습니다. - OhMyOpenCode는 컨텍스트 부하를 줄이기 위해 공격적으로 여러 에이전트를 활용합니다. - **이제 귀하의 에이전트는 개발 팀 리드입니다. 당신은 AI 매니저입니다.** 4. 작업이 완료될 때까지 멈추지 않습니다. 5. 이 프로젝트에 깊이 파고들고 싶지 않나요? 문제 없습니다. 'ultrathink'를 입력하세요.
 
 이 모든 것이 필요하지 않다면, 앞서 언급했듯이 특정 기능을 선택할 수 있습니다.
 
@@ -242,8 +238,8 @@ Hey please read this readme and tell me why it is different from other agent har
 이 프롬프트를 LLM 에이전트(Claude Code, AmpCode, Cursor 등)에 복사하여 붙여넣으세요:
 
 ```
-Install and configure oh-my-opencode by following the instructions here:
-https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/master/docs/guide/installation.md
+Install and configure only-my-opencode by following the instructions here:
+https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 또는 [설치 가이드](docs/guide/installation.md)를 직접 읽으세요 — 하지만 **에이전트가 처리하도록 하는 것을 강력히 권장합니다. 인간은 실수를 합니다.**
@@ -253,20 +249,20 @@ https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/master/
 설치 가이드를 가져와서 따르세요:
 
 ```bash
-curl -s https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/master/docs/guide/installation.md
+curl -s https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 ## 제거
 
-oh-my-opencode를 제거하려면:
+only-my-opencode를 제거하려면:
 
 1. **OpenCode 구성에서 플러그인 제거**
 
-   `~/.config/opencode/opencode.json`(또는 `opencode.jsonc`)을 편집하고 `plugin` 배열에서 `"oh-my-opencode"`를 제거하세요:
+   `~/.config/opencode/opencode.json`(또는 `opencode.jsonc`)을 편집하고 `plugin` 배열에서 `"only-my-opencode"`를 제거하세요:
 
    ```bash
    # Using jq
-   jq '.plugin = [.plugin[] | select(. != "oh-my-opencode")]' \
+   jq '.plugin = [.plugin[] | select(. != "only-my-opencode")]' \
        ~/.config/opencode/opencode.json > /tmp/oc.json && \
        mv /tmp/oc.json ~/.config/opencode/opencode.json
    ```
@@ -275,10 +271,10 @@ oh-my-opencode를 제거하려면:
 
    ```bash
    # Remove user config
-   rm -f ~/.config/opencode/oh-my-opencode.json
+   rm -f ~/.config/opencode/only-my-opencode.json
 
    # Remove project config (if exists)
-   rm -f .opencode/oh-my-opencode.json
+   rm -f .opencode/only-my-opencode.json
    ```
 
 3. **제거 확인**
@@ -294,6 +290,7 @@ oh-my-opencode를 제거하려면:
 자세한 내용은 전체 [기능 문서](docs/features.md)를 참조하세요.
 
 **빠른 개요:**
+
 - **에이전트**: Sisyphus(주요 에이전트), Prometheus(플래너), Oracle(아키텍처/디버깅), Librarian(문서/코드 검색), Explore(빠른 코드베이스 grep), Multimodal Looker
 - **백그라운드 에이전트**: 실제 개발 팀처럼 여러 에이전트를 병렬로 실행
 - **LSP 및 AST 도구**: 리팩토링, 이름 변경, 진단, AST 인식 코드 검색
@@ -309,7 +306,8 @@ oh-my-opencode를 제거하려면:
 자세한 내용은 전체 [구성 문서](docs/configurations.md)를 참조하세요.
 
 **빠른 개요:**
-- **구성 위치**: `.opencode/oh-my-opencode.json`(프로젝트) 또는 `~/.config/opencode/oh-my-opencode.json`(사용자)
+
+- **구성 위치**: `.opencode/only-my-opencode.json`(프로젝트) 또는 `~/.config/opencode/only-my-opencode.json`(사용자)
 - **JSONC 지원**: 주석 및 후행 쉼표 지원
 - **에이전트**: 모든 에이전트의 모델, 온도, 프롬프트 및 권한 재정의
 - **내장 스킬**: `playwright`(브라우저 자동화), `git-master`(원자적 커밋)
@@ -320,7 +318,6 @@ oh-my-opencode를 제거하려면:
 - **MCP**: 내장 websearch(Exa), context7(문서), grep_app(GitHub 검색)
 - **LSP**: 리팩토링 도구가 있는 완전한 LSP 지원
 - **실험적 기능**: 공격적 자르기, 자동 재개 등
-
 
 ## 작성자의 메모
 
@@ -334,12 +331,12 @@ Oh My OpenCode를 설치하세요.
 내가 겪은 모든 문제에 대한 답변이 이 플러그인에 구워져 있습니다. 설치하고 바로 가세요.
 OpenCode가 Debian/Arch라면 Oh My OpenCode는 Ubuntu/[Omarchy](https://omarchy.org/)입니다.
 
-
 [AmpCode](https://ampcode.com)와 [Claude Code](https://code.claude.com/docs/overview)에 큰 영향을 받았습니다 — 여기에 그들의 기능을 포팅했고, 종종 개선했습니다. 그리고 여전히 구축 중입니다.
 그것은 **Open**Code이니까요.
 
 다른 하니스가 약속하지만 전달할 수 없는 다중 모델 오케스트레이션, 안정성, 풍부한 기능을 즐기세요.
 계속 테스트하고 업데이트하겠습니다. 저는 이 프로젝트의 가장 집요한 사용자입니다.
+
 - 어떤 모델이 가장 날카로운 논리를 가지고 있나요?
 - 누가 디버깅의 신인가요?
 - 누가 가장 훌륭한 글을 쓰나요?
@@ -374,4 +371,4 @@ OpenCode가 Debian/Arch라면 Oh My OpenCode는 Ubuntu/[Omarchy](https://omarchy
 - [Google](https://google.com)
 - [Microsoft](https://microsoft.com)
 
-*이 놀라운 히어로 이미지에 대해 [@junhoyeo](https://github.com/junhoyeo)에게 특별히 감사드립니다.*
+_이 놀라운 히어로 이미지에 대해 [@junhoyeo](https://github.com/junhoyeo)에게 특별히 감사드립니다._

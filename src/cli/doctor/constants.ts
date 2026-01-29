@@ -1,4 +1,4 @@
-import color from "picocolors"
+import color from "picocolors";
 
 export const SYMBOLS = {
   check: color.green("\u2713"),
@@ -8,14 +8,14 @@ export const SYMBOLS = {
   arrow: color.cyan("\u2192"),
   bullet: color.dim("\u2022"),
   skip: color.dim("\u25CB"),
-} as const
+} as const;
 
 export const STATUS_COLORS = {
   pass: color.green,
   fail: color.red,
   warn: color.yellow,
   skip: color.dim,
-} as const
+} as const;
 
 export const CHECK_IDS = {
   OPENCODE_INSTALLATION: "opencode-installation",
@@ -33,7 +33,7 @@ export const CHECK_IDS = {
   MCP_BUILTIN: "mcp-builtin",
   MCP_USER: "mcp-user",
   VERSION_STATUS: "version-status",
-} as const
+} as const;
 
 export const CHECK_NAMES: Record<string, string> = {
   [CHECK_IDS.OPENCODE_INSTALLATION]: "OpenCode Installation",
@@ -51,7 +51,7 @@ export const CHECK_NAMES: Record<string, string> = {
   [CHECK_IDS.MCP_BUILTIN]: "Built-in MCP Servers",
   [CHECK_IDS.MCP_USER]: "User MCP Configuration",
   [CHECK_IDS.VERSION_STATUS]: "Version Status",
-} as const
+} as const;
 
 export const CATEGORY_NAMES: Record<string, string> = {
   installation: "Installation",
@@ -60,15 +60,15 @@ export const CATEGORY_NAMES: Record<string, string> = {
   dependencies: "Dependencies",
   tools: "Tools & Servers",
   updates: "Updates",
-} as const
+} as const;
 
 export const EXIT_CODES = {
   SUCCESS: 0,
   FAILURE: 1,
-} as const
+} as const;
 
-export const MIN_OPENCODE_VERSION = "1.0.150"
+export const MIN_OPENCODE_VERSION = "1.0.150";
 
-export const PACKAGE_NAME = "oh-my-opencode"
+export const PACKAGE_NAME = "only-my-opencode";
 
-export const OPENCODE_BINARIES = ["opencode", "opencode-desktop"] as const
+export const OPENCODE_BINARIES = ["opencode", "opencode-desktop"] as const;

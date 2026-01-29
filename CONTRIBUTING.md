@@ -1,6 +1,6 @@
 # Contributing to Oh My OpenCode
 
-First off, thanks for taking the time to contribute! This document provides guidelines and instructions for contributing to oh-my-opencode.
+First off, thanks for taking the time to contribute! This document provides guidelines and instructions for contributing to only-my-opencode.
 
 ## Table of Contents
 
@@ -31,6 +31,7 @@ Be respectful, inclusive, and constructive. We're all here to make better tools 
 **English is the primary language for all communications in this repository.**
 
 This includes:
+
 - Issues and bug reports
 - Pull requests and code reviews
 - Documentation and comments
@@ -45,6 +46,7 @@ This includes:
 ### Need Help with English?
 
 If English isn't your first language, don't worry! We value your contributions regardless of perfect grammar. You can:
+
 - Use translation tools to help compose messages
 - Ask for help from other community members
 - Focus on clear, simple communication rather than perfect prose
@@ -61,8 +63,8 @@ If English isn't your first language, don't worry! We value your contributions r
 
 ```bash
 # Clone the repository
-git clone https://github.com/code-yeongyu/oh-my-opencode.git
-cd oh-my-opencode
+git clone https://github.com/code-yeongyu/only-my-opencode.git
+cd only-my-opencode
 
 # Install dependencies (bun only - never use npm/yarn)
 bun install
@@ -76,29 +78,30 @@ bun run build
 After making changes, you can test your local build in OpenCode:
 
 1. **Build the project**:
+
    ```bash
    bun run build
    ```
 
 2. **Update your OpenCode config** (`~/.config/opencode/opencode.json` or `opencode.jsonc`):
+
    ```json
    {
-     "plugin": [
-       "file:///absolute/path/to/oh-my-opencode/dist/index.js"
-     ]
+     "plugin": ["file:///absolute/path/to/only-my-opencode/dist/index.js"]
    }
    ```
-   
-   For example, if your project is at `/Users/yourname/projects/oh-my-opencode`:
+
+   For example, if your project is at `/Users/yourname/projects/only-my-opencode`:
+
    ```json
    {
      "plugin": [
-       "file:///Users/yourname/projects/oh-my-opencode/dist/index.js"
+       "file:///Users/yourname/projects/only-my-opencode/dist/index.js"
      ]
    }
    ```
 
-   > **Note**: Remove `"oh-my-opencode"` from the plugin array if it exists, to avoid conflicts with the npm version.
+   > **Note**: Remove `"only-my-opencode"` from the plugin array if it exists, to avoid conflicts with the npm version.
 
 3. **Restart OpenCode** to load the changes.
 
@@ -107,7 +110,7 @@ After making changes, you can test your local build in OpenCode:
 ## Project Structure
 
 ```
-oh-my-opencode/
+only-my-opencode/
 ├── src/
 │   ├── agents/        # AI agents (OmO, oracle, librarian, explore, etc.)
 │   ├── hooks/         # 21 lifecycle hooks
@@ -143,17 +146,18 @@ bun run build:schema
 
 ### Code Style & Conventions
 
-| Convention | Rule |
-|------------|------|
-| Package Manager | **Bun only** (`bun run`, `bun build`, `bunx`) |
-| Types | Use `bun-types`, not `@types/node` |
-| Directory Naming | kebab-case (`ast-grep/`, `claude-code-hooks/`) |
-| File Operations | Never use bash commands (mkdir/touch/rm) for file creation in code |
-| Tool Structure | Each tool: `index.ts`, `types.ts`, `constants.ts`, `tools.ts`, `utils.ts` |
-| Hook Pattern | `createXXXHook(input: PluginInput)` function naming |
-| Exports | Barrel pattern (`export * from "./module"` in index.ts) |
+| Convention       | Rule                                                                      |
+| ---------------- | ------------------------------------------------------------------------- |
+| Package Manager  | **Bun only** (`bun run`, `bun build`, `bunx`)                             |
+| Types            | Use `bun-types`, not `@types/node`                                        |
+| Directory Naming | kebab-case (`ast-grep/`, `claude-code-hooks/`)                            |
+| File Operations  | Never use bash commands (mkdir/touch/rm) for file creation in code        |
+| Tool Structure   | Each tool: `index.ts`, `types.ts`, `constants.ts`, `tools.ts`, `utils.ts` |
+| Hook Pattern     | `createXXXHook(input: PluginInput)` function naming                       |
+| Exports          | Barrel pattern (`export * from "./module"` in index.ts)                   |
 
 **Anti-Patterns (Do Not Do)**:
+
 - Using npm/yarn instead of bun
 - Using `@types/node` instead of `bun-types`
 - Suppressing TypeScript errors with `as any`, `@ts-ignore`, `@ts-expect-error`

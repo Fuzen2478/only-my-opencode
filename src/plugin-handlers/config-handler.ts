@@ -25,13 +25,20 @@ import { loadMcpConfigs } from "../features/claude-code-mcp-loader";
 import { loadAllPluginComponents } from "../features/claude-code-plugin-loader";
 import { createBuiltinMcps } from "../mcp";
 import type { OhMyOpenCodeConfig } from "../config";
-import { log, fetchAvailableModels, readConnectedProvidersCache } from "../shared";
+import {
+  log,
+  fetchAvailableModels,
+  readConnectedProvidersCache,
+} from "../shared";
 import { getOpenCodeConfigPaths } from "../shared/opencode-config-dir";
 import { migrateAgentConfig } from "../shared/permission-compat";
 import { AGENT_NAME_MAP } from "../shared/migration";
 import { resolveModelWithFallback } from "../shared/model-resolver";
 import { AGENT_MODEL_REQUIREMENTS } from "../shared/model-requirements";
-import { PROMETHEUS_SYSTEM_PROMPT, PROMETHEUS_PERMISSION } from "../agents/prometheus-prompt";
+import {
+  PROMETHEUS_SYSTEM_PROMPT,
+  PROMETHEUS_PERMISSION,
+} from "../agents/prometheus-prompt";
 import { DEFAULT_CATEGORIES } from "../tools/delegate-task/constants";
 import type { ModelCacheState } from "../plugin-state";
 import type { CategoryConfig } from "../config/schema";
@@ -44,7 +51,7 @@ export interface ConfigHandlerDeps {
 
 export function resolveCategoryConfig(
   categoryName: string,
-  userCategories?: Record<string, CategoryConfig>
+  userCategories?: Record<string, CategoryConfig>,
 ): CategoryConfig | undefined {
   return userCategories?.[categoryName] ?? DEFAULT_CATEGORIES[categoryName];
 }
@@ -75,7 +82,7 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
             if (contextLimit) {
               modelCacheState.modelContextLimitsCache.set(
                 `${providerID}/${modelID}`,
-                contextLimit
+                contextLimit,
               );
             }
           }
@@ -83,19 +90,20 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
       }
     }
 
-    const pluginComponents = (pluginConfig.claude_code?.plugins ?? true)
-      ? await loadAllPluginComponents({
-          enabledPluginsOverride: pluginConfig.claude_code?.plugins_override,
-        })
-      : {
-          commands: {},
-          skills: {},
-          agents: {},
-          mcpServers: {},
-          hooksConfigs: [],
-          plugins: [],
-          errors: [],
-        };
+    const pluginComponents =
+      (pluginConfig.claude_code?.plugins ?? true)
+        ? await loadAllPluginComponents({
+            enabledPluginsOverride: pluginConfig.claude_code?.plugins_override,
+          })
+        : {
+            commands: {},
+            skills: {},
+            agents: {},
+            mcpServers: {},
+            hooksConfigs: [],
+            plugins: [],
+            errors: [],
+          };
 
     if (pluginComponents.plugins.length > 0) {
       log(`Loaded ${pluginComponents.plugins.length} Claude Code plugins`, {
@@ -108,19 +116,28 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
     }
 
     // Migrate disabled_agents from old names to new names
-    const migratedDisabledAgents = (pluginConfig.disabled_agents ?? []).map(agent => {
-      return AGENT_NAME_MAP[agent.toLowerCase()] ?? AGENT_NAME_MAP[agent] ?? agent
-    }) as typeof pluginConfig.disabled_agents
+    const migratedDisabledAgents = (pluginConfig.disabled_agents ?? []).map(
+      (agent) => {
+        return (
+          AGENT_NAME_MAP[agent.toLowerCase()] ?? AGENT_NAME_MAP[agent] ?? agent
+        );
+      },
+    ) as typeof pluginConfig.disabled_agents;
 
-    const includeClaudeSkillsForAwareness = pluginConfig.claude_code?.skills ?? true;
+    const includeClaudeSkillsForAwareness =
+      pluginConfig.claude_code?.skills ?? true;
     const [
       discoveredUserSkills,
       discoveredProjectSkills,
       discoveredOpencodeGlobalSkills,
       discoveredOpencodeProjectSkills,
     ] = await Promise.all([
-      includeClaudeSkillsForAwareness ? discoverUserClaudeSkills() : Promise.resolve([]),
-      includeClaudeSkillsForAwareness ? discoverProjectClaudeSkills() : Promise.resolve([]),
+      includeClaudeSkillsForAwareness
+        ? discoverUserClaudeSkills()
+        : Promise.resolve([]),
+      includeClaudeSkillsForAwareness
+        ? discoverProjectClaudeSkills()
+        : Promise.resolve([]),
       discoverOpencodeGlobalSkills(),
       discoverOpencodeProjectSkills(),
     ]);
@@ -132,7 +149,8 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
       ...discoveredUserSkills,
     ];
 
-    const browserProvider = pluginConfig.browser_automation_engine?.provider ?? "playwright";
+    const browserProvider =
+      pluginConfig.browser_automation_engine?.provider ?? "playwright";
     const builtinAgents = await createBuiltinAgents(
       migratedDisabledAgents,
       pluginConfig.agents,
@@ -142,18 +160,16 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
       pluginConfig.git_master,
       allDiscoveredSkills,
       ctx.client,
-      browserProvider
+      browserProvider,
     );
 
     // Claude Code agents: Do NOT apply permission migration
     // Claude Code uses whitelist-based tools format which is semantically different
     // from OpenCode's denylist-based permission system
-    const userAgents = (pluginConfig.claude_code?.agents ?? true)
-      ? loadUserAgents()
-      : {};
-    const projectAgents = (pluginConfig.claude_code?.agents ?? true)
-      ? loadProjectAgents()
-      : {};
+    const userAgents =
+      (pluginConfig.claude_code?.agents ?? true) ? loadUserAgents() : {};
+    const projectAgents =
+      (pluginConfig.claude_code?.agents ?? true) ? loadProjectAgents() : {};
 
     // Plugin agents: Apply permission migration for compatibility
     const rawPluginAgents = pluginComponents.agents;
@@ -161,20 +177,16 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
       Object.entries(rawPluginAgents).map(([k, v]) => [
         k,
         v ? migrateAgentConfig(v as Record<string, unknown>) : v,
-      ])
+      ]),
     );
 
     const isSisyphusEnabled = pluginConfig.sisyphus_agent?.disabled !== true;
     const builderEnabled =
       pluginConfig.sisyphus_agent?.default_builder_enabled ?? false;
-    const plannerEnabled =
-      pluginConfig.sisyphus_agent?.planner_enabled ?? true;
+    const plannerEnabled = pluginConfig.sisyphus_agent?.planner_enabled ?? true;
     const replacePlan = pluginConfig.sisyphus_agent?.replace_plan ?? true;
 
-    type AgentConfig = Record<
-      string,
-      Record<string, unknown> | undefined
-    > & {
+    type AgentConfig = Record<string, Record<string, unknown> | undefined> & {
       build?: Record<string, unknown>;
       plan?: Record<string, unknown>;
       explore?: { tools?: Record<string, unknown> };
@@ -194,14 +206,14 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
 
       agentConfig["sisyphus-junior"] = createSisyphusJuniorAgentWithOverrides(
         pluginConfig.agents?.["sisyphus-junior"],
-        config.model as string | undefined
+        config.model as string | undefined,
       );
 
       if (builderEnabled) {
         const { name: _buildName, ...buildConfigWithoutName } =
           configAgent?.build ?? {};
         const migratedBuildConfig = migrateAgentConfig(
-          buildConfigWithoutName as Record<string, unknown>
+          buildConfigWithoutName as Record<string, unknown>,
         );
         const openCodeBuilderOverride =
           pluginConfig.agents?.["OpenCode-Builder"];
@@ -216,28 +228,36 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
       }
 
       if (plannerEnabled) {
-        const { name: _planName, mode: _planMode, ...planConfigWithoutName } =
-          configAgent?.plan ?? {};
+        const {
+          name: _planName,
+          mode: _planMode,
+          ...planConfigWithoutName
+        } = configAgent?.plan ?? {};
         const migratedPlanConfig = migrateAgentConfig(
-          planConfigWithoutName as Record<string, unknown>
+          planConfigWithoutName as Record<string, unknown>,
         );
-        const prometheusOverride =
-          pluginConfig.agents?.["prometheus"] as
-            | (Record<string, unknown> & { category?: string; model?: string; variant?: string })
-            | undefined;
+        const prometheusOverride = pluginConfig.agents?.["prometheus"] as
+          | (Record<string, unknown> & {
+              category?: string;
+              model?: string;
+              variant?: string;
+            })
+          | undefined;
         const defaultModel = config.model as string | undefined;
 
         const categoryConfig = prometheusOverride?.category
           ? resolveCategoryConfig(
               prometheusOverride.category,
-              pluginConfig.categories
+              pluginConfig.categories,
             )
           : undefined;
 
         const prometheusRequirement = AGENT_MODEL_REQUIREMENTS["prometheus"];
         const connectedProviders = readConnectedProvidersCache();
         const availableModels = ctx.client
-          ? await fetchAvailableModels(ctx.client, { connectedProviders: connectedProviders ?? undefined })
+          ? await fetchAvailableModels(ctx.client, {
+              connectedProviders: connectedProviders ?? undefined,
+            })
           : new Set<string>();
 
         const modelResolution = resolveModelWithFallback({
@@ -269,7 +289,9 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
             ? { maxTokens: categoryConfig.maxTokens }
             : {}),
           ...(categoryConfig?.tools ? { tools: categoryConfig.tools } : {}),
-          ...(categoryConfig?.thinking ? { thinking: categoryConfig.thinking } : {}),
+          ...(categoryConfig?.thinking
+            ? { thinking: categoryConfig.thinking }
+            : {}),
           ...(categoryConfig?.reasoningEffort !== undefined
             ? { reasoningEffort: categoryConfig.reasoningEffort }
             : {}),
@@ -283,37 +305,44 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
           : prometheusBase;
       }
 
-    const filteredConfigAgents = configAgent
-      ? Object.fromEntries(
-          Object.entries(configAgent)
-            .filter(([key]) => {
-              if (key === "build") return false;
-              if (key === "plan" && replacePlan) return false;
-              // Filter out agents that oh-my-opencode provides to prevent
-              // OpenCode defaults from overwriting user config in oh-my-opencode.json
-              // See: https://github.com/code-yeongyu/oh-my-opencode/issues/472
-              if (key in builtinAgents) return false;
-              return true;
-            })
-            .map(([key, value]) => [
-              key,
-              value ? migrateAgentConfig(value as Record<string, unknown>) : value,
-            ])
-        )
-      : {};
+      const filteredConfigAgents = configAgent
+        ? Object.fromEntries(
+            Object.entries(configAgent)
+              .filter(([key]) => {
+                if (key === "build") return false;
+                if (key === "plan" && replacePlan) return false;
+                // Filter out agents that only-my-opencode provides to prevent
+                // OpenCode defaults from overwriting user config in only-my-opencode.json
+                // See: https://github.com/code-yeongyu/only-my-opencode/issues/472
+                if (key in builtinAgents) return false;
+                return true;
+              })
+              .map(([key, value]) => [
+                key,
+                value
+                  ? migrateAgentConfig(value as Record<string, unknown>)
+                  : value,
+              ]),
+          )
+        : {};
 
       const migratedBuild = configAgent?.build
         ? migrateAgentConfig(configAgent.build as Record<string, unknown>)
         : {};
 
-      const planDemoteConfig = replacePlan && agentConfig["prometheus"]
-        ? { ...agentConfig["prometheus"], name: "plan", mode: "subagent" as const }
-        : undefined;
+      const planDemoteConfig =
+        replacePlan && agentConfig["prometheus"]
+          ? {
+              ...agentConfig["prometheus"],
+              name: "plan",
+              mode: "subagent" as const,
+            }
+          : undefined;
 
       config.agent = {
         ...agentConfig,
         ...Object.fromEntries(
-          Object.entries(builtinAgents).filter(([k]) => k !== "sisyphus")
+          Object.entries(builtinAgents).filter(([k]) => k !== "sisyphus"),
         ),
         ...userAgents,
         ...projectAgents,
@@ -343,7 +372,7 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
     };
 
     type AgentWithPermission = { permission?: Record<string, unknown> };
-    
+
     if (agentResult.librarian) {
       const agent = agentResult.librarian as AgentWithPermission;
       agent.permission = { ...agent.permission, "grep_app_*": "allow" };
@@ -354,15 +383,30 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
     }
     if (agentResult["atlas"]) {
       const agent = agentResult["atlas"] as AgentWithPermission;
-      agent.permission = { ...agent.permission, task: "deny", call_omo_agent: "deny", delegate_task: "allow" };
+      agent.permission = {
+        ...agent.permission,
+        task: "deny",
+        call_omo_agent: "deny",
+        delegate_task: "allow",
+      };
     }
     if (agentResult.sisyphus) {
       const agent = agentResult.sisyphus as AgentWithPermission;
-      agent.permission = { ...agent.permission, call_omo_agent: "deny", delegate_task: "allow", question: "allow" };
+      agent.permission = {
+        ...agent.permission,
+        call_omo_agent: "deny",
+        delegate_task: "allow",
+        question: "allow",
+      };
     }
     if (agentResult["prometheus"]) {
       const agent = agentResult["prometheus"] as AgentWithPermission;
-      agent.permission = { ...agent.permission, call_omo_agent: "deny", delegate_task: "allow", question: "allow" };
+      agent.permission = {
+        ...agent.permission,
+        call_omo_agent: "deny",
+        delegate_task: "allow",
+        question: "allow",
+      };
     }
     if (agentResult["sisyphus-junior"]) {
       const agent = agentResult["sisyphus-junior"] as AgentWithPermission;
@@ -376,9 +420,10 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
       delegate_task: "deny",
     };
 
-    const mcpResult = (pluginConfig.claude_code?.mcp ?? true)
-      ? await loadMcpConfigs()
-      : { servers: {} };
+    const mcpResult =
+      (pluginConfig.claude_code?.mcp ?? true)
+        ? await loadMcpConfigs()
+        : { servers: {} };
 
     config.mcp = {
       ...(config.mcp as Record<string, unknown>),

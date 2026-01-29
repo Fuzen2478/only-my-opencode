@@ -1,4 +1,4 @@
-# Oh-My-OpenCode Configuration
+# only-my-opencode Configuration
 
 Highly opinionated, but adjustable to taste.
 
@@ -7,7 +7,7 @@ Highly opinionated, but adjustable to taste.
 **Most users don't need to configure anything manually.** Run the interactive installer:
 
 ```bash
-bunx oh-my-opencode install
+bunx only-my-opencode install
 ```
 
 It asks about your providers (Claude, OpenAI, Gemini, etc.) and generates optimal config automatically.
@@ -16,20 +16,20 @@ It asks about your providers (Claude, OpenAI, Gemini, etc.) and generates optima
 
 ```jsonc
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
-  
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
+
   // Override specific agent models
   "agents": {
-    "oracle": { "model": "openai/gpt-5.2" },           // Use GPT for debugging
+    "oracle": { "model": "openai/gpt-5.2" }, // Use GPT for debugging
     "librarian": { "model": "zai-coding-plan/glm-4.7" }, // Cheap model for research
-    "explore": { "model": "opencode/gpt-5-nano" }        // Free model for grep
+    "explore": { "model": "opencode/gpt-5-nano" }, // Free model for grep
   },
-  
+
   // Override category models (used by delegate_task)
   "categories": {
-    "quick": { "model": "opencode/gpt-5-nano" },         // Fast/cheap for trivial tasks
-    "visual-engineering": { "model": "google/gemini-3-pro" } // Gemini for UI
-  }
+    "quick": { "model": "opencode/gpt-5-nano" }, // Fast/cheap for trivial tasks
+    "visual-engineering": { "model": "google/gemini-3-pro" }, // Gemini for UI
+  },
 }
 ```
 
@@ -38,44 +38,46 @@ It asks about your providers (Claude, OpenAI, Gemini, etc.) and generates optima
 ## Config File Locations
 
 Config file locations (priority order):
-1. `.opencode/oh-my-opencode.json` (project)
+
+1. `.opencode/only-my-opencode.json` (project)
 2. User config (platform-specific):
 
-| Platform        | User Config Path                                                                                            |
-| --------------- | ----------------------------------------------------------------------------------------------------------- |
-| **Windows**     | `~/.config/opencode/oh-my-opencode.json` (preferred) or `%APPDATA%\opencode\oh-my-opencode.json` (fallback) |
-| **macOS/Linux** | `~/.config/opencode/oh-my-opencode.json`                                                                    |
+| Platform        | User Config Path                                                                                                |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Windows**     | `~/.config/opencode/only-my-opencode.json` (preferred) or `%APPDATA%\opencode\only-my-opencode.json` (fallback) |
+| **macOS/Linux** | `~/.config/opencode/only-my-opencode.json`                                                                      |
 
 Schema autocomplete supported:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json"
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json"
 }
 ```
 
 ## JSONC Support
 
-The `oh-my-opencode` configuration file supports JSONC (JSON with Comments):
+The `only-my-opencode` configuration file supports JSONC (JSON with Comments):
+
 - Line comments: `// comment`
 - Block comments: `/* comment */`
 - Trailing commas: `{ "key": "value", }`
 
-When both `oh-my-opencode.jsonc` and `oh-my-opencode.json` files exist, `.jsonc` takes priority.
+When both `only-my-opencode.jsonc` and `only-my-opencode.json` files exist, `.jsonc` takes priority.
 
 **Example with comments:**
 
 ```jsonc
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
 
   /* Agent overrides - customize models for specific tasks */
   "agents": {
     "oracle": {
-      "model": "openai/gpt-5.2"  // GPT for strategic reasoning
+      "model": "openai/gpt-5.2", // GPT for strategic reasoning
     },
     "explore": {
-      "model": "opencode/gpt-5-nano"  // Free & fast for exploration
+      "model": "opencode/gpt-5-nano", // Free & fast for exploration
     },
   },
 }
@@ -145,7 +147,7 @@ Fine-grained control over what agents can do:
 | `doom_loop`          | Allow infinite loop detection override | `ask` / `allow` / `deny`                                                    |
 | `external_directory` | Access files outside project root      | `ask` / `allow` / `deny`                                                    |
 
-Or disable via `disabled_agents` in `~/.config/opencode/oh-my-opencode.json` or `.opencode/oh-my-opencode.json`:
+Or disable via `disabled_agents` in `~/.config/opencode/only-my-opencode.json` or `.opencode/only-my-opencode.json`:
 
 ```json
 {
@@ -162,7 +164,7 @@ Oh My OpenCode includes built-in skills that provide additional capabilities:
 - **playwright** (default) / **agent-browser**: Browser automation for web scraping, testing, screenshots, and browser interactions. See [Browser Automation](#browser-automation) for switching between providers.
 - **git-master**: Git expert for atomic commits, rebase/squash, and history search (blame, bisect, log -S). STRONGLY RECOMMENDED: Use with `delegate_task(category='quick', load_skills=['git-master'], ...)` to save context.
 
-Disable built-in skills via `disabled_skills` in `~/.config/opencode/oh-my-opencode.json` or `.opencode/oh-my-opencode.json`:
+Disable built-in skills via `disabled_skills` in `~/.config/opencode/only-my-opencode.json` or `.opencode/only-my-opencode.json`:
 
 ```json
 {
@@ -176,12 +178,12 @@ Available built-in skills: `playwright`, `agent-browser`, `git-master`
 
 Choose between two browser automation providers:
 
-| Provider | Interface | Features | Installation |
-|----------|-----------|----------|--------------|
-| **playwright** (default) | MCP tools | Playwright MCP server with structured tool calls | Auto-installed via npx |
-| **agent-browser** | Bash CLI | Vercel's CLI with session management, parallel browsers | Requires `bun add -g agent-browser` |
+| Provider                 | Interface | Features                                                | Installation                        |
+| ------------------------ | --------- | ------------------------------------------------------- | ----------------------------------- |
+| **playwright** (default) | MCP tools | Playwright MCP server with structured tool calls        | Auto-installed via npx              |
+| **agent-browser**        | Bash CLI  | Vercel's CLI with session management, parallel browsers | Requires `bun add -g agent-browser` |
 
-**Switch providers** via `browser_automation_engine` in `oh-my-opencode.json`:
+**Switch providers** via `browser_automation_engine` in `only-my-opencode.json`:
 
 ```json
 {
@@ -198,18 +200,21 @@ Uses the official Playwright MCP server (`@playwright/mcp`). Browser automation 
 ### agent-browser
 
 Uses [Vercel's agent-browser CLI](https://github.com/vercel-labs/agent-browser). Key advantages:
+
 - **Session management**: Run multiple isolated browser instances with `--session` flag
 - **Persistent profiles**: Keep browser state across restarts with `--profile`
 - **Snapshot-based workflow**: Get element refs via `snapshot -i`, interact with `@e1`, `@e2`, etc.
 - **CLI-first**: All commands via Bash - great for scripting
 
 **Installation required**:
+
 ```bash
 bun add -g agent-browser
 agent-browser install  # Download Chromium
 ```
 
 **Example workflow**:
+
 ```bash
 agent-browser open https://example.com
 agent-browser snapshot -i  # Get interactive elements with refs
@@ -223,7 +228,7 @@ agent-browser close
 
 Run background subagents in separate tmux panes for **visual multi-agent execution**. See your agents working in parallel, each in their own terminal pane.
 
-**Enable tmux integration** via `tmux` in `oh-my-opencode.json`:
+**Enable tmux integration** via `tmux` in `only-my-opencode.json`:
 
 ```json
 {
@@ -237,23 +242,23 @@ Run background subagents in separate tmux panes for **visual multi-agent executi
 }
 ```
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `enabled` | `false` | Enable tmux subagent pane spawning. Only works when running inside an existing tmux session. |
-| `layout` | `main-vertical` | Tmux layout for agent panes. See [Layout Options](#layout-options) below. |
-| `main_pane_size` | `60` | Main pane size as percentage (20-80). |
-| `main_pane_min_width` | `120` | Minimum width for main pane in columns. |
-| `agent_pane_min_width` | `40` | Minimum width for each agent pane in columns. |
+| Option                 | Default         | Description                                                                                  |
+| ---------------------- | --------------- | -------------------------------------------------------------------------------------------- |
+| `enabled`              | `false`         | Enable tmux subagent pane spawning. Only works when running inside an existing tmux session. |
+| `layout`               | `main-vertical` | Tmux layout for agent panes. See [Layout Options](#layout-options) below.                    |
+| `main_pane_size`       | `60`            | Main pane size as percentage (20-80).                                                        |
+| `main_pane_min_width`  | `120`           | Minimum width for main pane in columns.                                                      |
+| `agent_pane_min_width` | `40`            | Minimum width for each agent pane in columns.                                                |
 
 ### Layout Options
 
-| Layout | Description |
-|--------|-------------|
-| `main-vertical` | Main pane left, agent panes stacked on right (default) |
-| `main-horizontal` | Main pane top, agent panes stacked bottom |
-| `tiled` | All panes in equal-sized grid |
-| `even-horizontal` | All panes in horizontal row |
-| `even-vertical` | All panes in vertical stack |
+| Layout            | Description                                            |
+| ----------------- | ------------------------------------------------------ |
+| `main-vertical`   | Main pane left, agent panes stacked on right (default) |
+| `main-horizontal` | Main pane top, agent panes stacked bottom              |
+| `tiled`           | All panes in equal-sized grid                          |
+| `even-horizontal` | All panes in horizontal row                            |
+| `even-vertical`   | All panes in vertical stack                            |
 
 ### Requirements
 
@@ -264,6 +269,7 @@ Run background subagents in separate tmux panes for **visual multi-agent executi
 ### How It Works
 
 When `tmux.enabled` is `true` and you're inside a tmux session:
+
 - Background agents (via `delegate_task(run_in_background=true)`) spawn in new tmux panes
 - Each pane shows the subagent's real-time output
 - Panes are automatically closed when the subagent completes
@@ -274,6 +280,7 @@ When `tmux.enabled` is `true` and you're inside a tmux session:
 To enable tmux subagent panes, OpenCode must run in **server mode** with the `--port` flag. This starts an HTTP server that subagent panes connect to via `opencode attach`.
 
 **Basic setup**:
+
 ```bash
 # Start tmux session
 tmux new -s dev
@@ -294,7 +301,7 @@ function oc
     set base_name (basename (pwd))
     set path_hash (echo (pwd) | md5 | cut -c1-4)
     set session_name "$base_name-$path_hash"
-    
+
     # Find available port starting from 4096
     function __oc_find_port
         set port 4096
@@ -307,10 +314,10 @@ function oc
         end
         echo 4096
     end
-    
+
     set oc_port (__oc_find_port)
     set -x OPENCODE_PORT $oc_port
-    
+
     if set -q TMUX
         # Already inside tmux - just run with port
         opencode --port $oc_port $argv
@@ -324,7 +331,7 @@ function oc
             tmux new-session -s "$session_name" -c (pwd) "$oc_cmd"
         end
     end
-    
+
     functions -e __oc_find_port
 end
 ```
@@ -337,7 +344,7 @@ oc() {
     local base_name=$(basename "$PWD")
     local path_hash=$(echo "$PWD" | md5sum | cut -c1-4)
     local session_name="${base_name}-${path_hash}"
-    
+
     # Find available port
     local port=4096
     while [ $port -lt 5096 ]; do
@@ -346,9 +353,9 @@ oc() {
         fi
         port=$((port + 1))
     done
-    
+
     export OPENCODE_PORT=$port
-    
+
     if [ -n "$TMUX" ]; then
         opencode --port $port "$@"
     else
@@ -373,8 +380,8 @@ oc() {
 
 **Environment variables**:
 
-| Variable | Description |
-|----------|-------------|
+| Variable        | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
 | `OPENCODE_PORT` | Default port for the HTTP server (used if `--port` not specified) |
 
 ### Server Mode Reference
@@ -389,9 +396,9 @@ opencode serve --port 4096
 opencode --port 4096
 ```
 
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--port` | `4096` | Port for HTTP server |
+| Flag         | Default     | Description           |
+| ------------ | ----------- | --------------------- |
+| `--port`     | `4096`      | Port for HTTP server  |
 | `--hostname` | `127.0.0.1` | Hostname to listen on |
 
 For more details, see the [OpenCode Server documentation](https://opencode.ai/docs/server/).
@@ -517,6 +524,7 @@ Configure concurrency limits for background agent tasks. This controls how many 
 **Priority Order**: `modelConcurrency` > `providerConcurrency` > `defaultConcurrency`
 
 **Use Cases**:
+
 - Limit expensive models (e.g., Opus) to prevent cost spikes
 - Allow more concurrent tasks for fast/cheap models (e.g., Gemini Flash)
 - Respect provider rate limits by setting provider-level caps
@@ -527,10 +535,10 @@ Categories enable domain-specific task delegation via the `delegate_task` tool. 
 
 **Default Categories:**
 
-| Category         | Model                         | Description                                                                  |
-| ---------------- | ----------------------------- | ---------------------------------------------------------------------------- |
+| Category         | Model                 | Description                                                                  |
+| ---------------- | --------------------- | ---------------------------------------------------------------------------- |
 | `visual`         | `google/gemini-3-pro` | Frontend, UI/UX, design-focused tasks. High creativity (temp 0.7).           |
-| `business-logic` | `openai/gpt-5.2`              | Backend logic, architecture, strategic reasoning. Low creativity (temp 0.1). |
+| `business-logic` | `openai/gpt-5.2`      | Backend logic, architecture, strategic reasoning. Low creativity (temp 0.1). |
 
 **Usage:**
 
@@ -545,7 +553,7 @@ delegate_task(agent="oracle", prompt="Review this architecture")
 
 **Custom Categories:**
 
-Add custom categories in `oh-my-opencode.json`:
+Add custom categories in `only-my-opencode.json`:
 
 ```json
 {
@@ -574,7 +582,8 @@ At runtime, Oh My OpenCode uses a 3-step resolution process to determine which m
 **Problem**: Users have different provider configurations. The system needs to select the best available model for each task at runtime.
 
 **Solution**: A simple 3-step resolution flow:
-1. **Step 1: User Override** — If you specify a model in `oh-my-opencode.json`, use exactly that
+
+1. **Step 1: User Override** — If you specify a model in `only-my-opencode.json`, use exactly that
 2. **Step 2: Provider Fallback** — Try each provider in the requirement's priority order until one is available
 3. **Step 3: System Default** — Fall back to OpenCode's configured default model
 
@@ -587,7 +596,7 @@ At runtime, Oh My OpenCode uses a 3-step resolution process to determine which m
 │                                                                 │
 │   Step 1: USER OVERRIDE                                         │
 │   ┌─────────────────────────────────────────────────────────┐   │
-│   │ User specified model in oh-my-opencode.json?            │   │
+│   │ User specified model in only-my-opencode.json?            │   │
 │   │         YES → Use exactly as specified                  │   │
 │   │         NO  → Continue to Step 2                        │   │
 │   └─────────────────────────────────────────────────────────┘   │
@@ -623,41 +632,42 @@ At runtime, Oh My OpenCode uses a 3-step resolution process to determine which m
 
 Each agent has a defined provider priority chain. The system tries providers in order until it finds an available model:
 
-| Agent | Model (no prefix) | Provider Priority Chain |
-|-------|-------------------|-------------------------|
-| **Sisyphus** | `claude-opus-4-5` | anthropic → github-copilot → opencode → antigravity → google |
-| **oracle** | `gpt-5.2` | openai → anthropic → google → github-copilot → opencode |
-| **librarian** | `big-pickle` | opencode → github-copilot → anthropic |
-| **explore** | `gpt-5-nano` | anthropic → opencode |
-| **multimodal-looker** | `gemini-3-flash` | google → openai → zai-coding-plan → anthropic → opencode |
-| **Prometheus (Planner)** | `claude-opus-4-5` | anthropic → github-copilot → opencode → antigravity → google |
+| Agent                       | Model (no prefix)   | Provider Priority Chain                                      |
+| --------------------------- | ------------------- | ------------------------------------------------------------ |
+| **Sisyphus**                | `claude-opus-4-5`   | anthropic → github-copilot → opencode → antigravity → google |
+| **oracle**                  | `gpt-5.2`           | openai → anthropic → google → github-copilot → opencode      |
+| **librarian**               | `big-pickle`        | opencode → github-copilot → anthropic                        |
+| **explore**                 | `gpt-5-nano`        | anthropic → opencode                                         |
+| **multimodal-looker**       | `gemini-3-flash`    | google → openai → zai-coding-plan → anthropic → opencode     |
+| **Prometheus (Planner)**    | `claude-opus-4-5`   | anthropic → github-copilot → opencode → antigravity → google |
 | **Metis (Plan Consultant)** | `claude-sonnet-4-5` | anthropic → github-copilot → opencode → antigravity → google |
-| **Momus (Plan Reviewer)** | `claude-opus-4-5` | anthropic → github-copilot → opencode → antigravity → google |
-| **Atlas** | `claude-sonnet-4-5` | anthropic → github-copilot → opencode → antigravity → google |
+| **Momus (Plan Reviewer)**   | `claude-opus-4-5`   | anthropic → github-copilot → opencode → antigravity → google |
+| **Atlas**                   | `claude-sonnet-4-5` | anthropic → github-copilot → opencode → antigravity → google |
 
 ### Category Provider Chains
 
 Categories follow the same resolution logic:
 
-| Category | Model (no prefix) | Provider Priority Chain |
-|----------|-------------------|-------------------------|
-| **visual-engineering** | `gemini-3-pro` | google → openai → anthropic → github-copilot → opencode |
-| **ultrabrain** | `gpt-5.2-codex` | openai → anthropic → google → github-copilot → opencode |
-| **artistry** | `gemini-3-pro` | google → openai → anthropic → github-copilot → opencode |
-| **quick** | `claude-haiku-4-5` | anthropic → github-copilot → opencode → antigravity → google |
-| **unspecified-low** | `claude-sonnet-4-5` | anthropic → github-copilot → opencode → antigravity → google |
-| **unspecified-high** | `claude-opus-4-5` | anthropic → github-copilot → opencode → antigravity → google |
-| **writing** | `gemini-3-flash` | google → openai → anthropic → github-copilot → opencode |
+| Category               | Model (no prefix)   | Provider Priority Chain                                      |
+| ---------------------- | ------------------- | ------------------------------------------------------------ |
+| **visual-engineering** | `gemini-3-pro`      | google → openai → anthropic → github-copilot → opencode      |
+| **ultrabrain**         | `gpt-5.2-codex`     | openai → anthropic → google → github-copilot → opencode      |
+| **artistry**           | `gemini-3-pro`      | google → openai → anthropic → github-copilot → opencode      |
+| **quick**              | `claude-haiku-4-5`  | anthropic → github-copilot → opencode → antigravity → google |
+| **unspecified-low**    | `claude-sonnet-4-5` | anthropic → github-copilot → opencode → antigravity → google |
+| **unspecified-high**   | `claude-opus-4-5`   | anthropic → github-copilot → opencode → antigravity → google |
+| **writing**            | `gemini-3-flash`    | google → openai → anthropic → github-copilot → opencode      |
 
 ### Checking Your Configuration
 
 Use the `doctor` command to see how models resolve with your current configuration:
 
 ```bash
-bunx oh-my-opencode doctor --verbose
+bunx only-my-opencode doctor --verbose
 ```
 
 The "Model Resolution" check shows:
+
 - Each agent/category's model requirement
 - Provider fallback chain
 - User overrides (if configured)
@@ -665,7 +675,7 @@ The "Model Resolution" check shows:
 
 ### Manual Override
 
-Override any agent or category model in `oh-my-opencode.json`:
+Override any agent or category model in `only-my-opencode.json`:
 
 ```json
 {
@@ -689,7 +699,7 @@ When you specify a model override, it takes precedence (Step 1) and the provider
 
 ## Hooks
 
-Disable specific built-in hooks via `disabled_hooks` in `~/.config/opencode/oh-my-opencode.json` or `.opencode/oh-my-opencode.json`:
+Disable specific built-in hooks via `disabled_hooks` in `~/.config/opencode/only-my-opencode.json` or `.opencode/only-my-opencode.json`:
 
 ```json
 {
@@ -709,7 +719,7 @@ Exa, Context7 and grep.app MCP enabled by default.
 - **context7**: Fetches up-to-date official documentation for libraries
 - **grep_app**: Ultra-fast code search across millions of public GitHub repositories via [grep.app](https://grep.app)
 
-Don't want them? Disable via `disabled_mcps` in `~/.config/opencode/oh-my-opencode.json` or `.opencode/oh-my-opencode.json`:
+Don't want them? Disable via `disabled_mcps` in `~/.config/opencode/only-my-opencode.json` or `.opencode/only-my-opencode.json`:
 
 ```json
 {
@@ -723,7 +733,7 @@ OpenCode provides LSP tools for analysis.
 Oh My OpenCode adds refactoring tools (rename, code actions).
 All OpenCode LSP configs and custom settings (from opencode.json) are supported, plus additional Oh My OpenCode-specific settings.
 
-Add LSP servers via the `lsp` option in `~/.config/opencode/oh-my-opencode.json` or `.opencode/oh-my-opencode.json`:
+Add LSP servers via the `lsp` option in `~/.config/opencode/only-my-opencode.json` or `.opencode/only-my-opencode.json`:
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-CLI entry: `bunx oh-my-opencode`. Interactive installer, doctor diagnostics. Commander.js + @clack/prompts.
+CLI entry: `bunx only-my-opencode`. Interactive installer, doctor diagnostics. Commander.js + @clack/prompts.
 
 ## STRUCTURE
 
@@ -36,23 +36,23 @@ cli/
 
 ## COMMANDS
 
-| Command | Purpose |
-|---------|---------|
-| `install` | Interactive setup with provider selection |
-| `doctor` | 14 health checks for diagnostics |
-| `run` | Launch session with todo enforcement |
-| `get-local-version` | Version detection and update check |
+| Command             | Purpose                                   |
+| ------------------- | ----------------------------------------- |
+| `install`           | Interactive setup with provider selection |
+| `doctor`            | 14 health checks for diagnostics          |
+| `run`               | Launch session with todo enforcement      |
+| `get-local-version` | Version detection and update check        |
 
 ## DOCTOR CATEGORIES (14 Checks)
 
-| Category | Checks |
-|----------|--------|
-| installation | opencode, plugin |
-| configuration | config validity, Zod, model-resolution |
-| authentication | anthropic, openai, google |
-| dependencies | ast-grep, comment-checker, gh-cli |
-| tools | LSP, MCP |
-| updates | version comparison |
+| Category       | Checks                                 |
+| -------------- | -------------------------------------- |
+| installation   | opencode, plugin                       |
+| configuration  | config validity, Zod, model-resolution |
+| authentication | anthropic, openai, google              |
+| dependencies   | ast-grep, comment-checker, gh-cli      |
+| tools          | LSP, MCP                               |
+| updates        | version comparison                     |
 
 ## HOW TO ADD CHECK
 

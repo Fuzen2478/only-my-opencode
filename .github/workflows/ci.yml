@@ -94,12 +94,12 @@ jobs:
       - name: Auto-commit schema changes
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
-          if git diff --quiet assets/oh-my-opencode.schema.json; then
+          if git diff --quiet assets/only-my-opencode.schema.json; then
             echo "No schema changes to commit"
           else
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add assets/oh-my-opencode.schema.json
+            git add assets/only-my-opencode.schema.json
             git commit -m "chore: auto-update schema.json"
             git push
           fi
@@ -134,7 +134,7 @@ jobs:
       - name: Create or update draft release
         run: |
           EXISTING_DRAFT=$(gh release list --json tagName,isDraft --jq '.[] | select(.isDraft == true and .tagName == "next") | .tagName')
-          
+
           if [ -n "$EXISTING_DRAFT" ]; then
             echo "Updating existing draft release..."
             gh release edit next \

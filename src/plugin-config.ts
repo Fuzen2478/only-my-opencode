@@ -13,7 +13,7 @@ import {
 
 export function loadConfigFromPath(
   configPath: string,
-  ctx: unknown
+  ctx: unknown,
 ): OhMyOpenCodeConfig | null {
   try {
     if (fs.existsSync(configPath)) {
@@ -49,7 +49,7 @@ export function loadConfigFromPath(
 
 export function mergeConfigs(
   base: OhMyOpenCodeConfig,
-  override: OhMyOpenCodeConfig
+  override: OhMyOpenCodeConfig,
 ): OhMyOpenCodeConfig {
   return {
     ...base,
@@ -92,19 +92,17 @@ export function mergeConfigs(
 
 export function loadPluginConfig(
   directory: string,
-  ctx: unknown
+  ctx: unknown,
 ): OhMyOpenCodeConfig {
   // User-level config path - prefer .jsonc over .json
   const configDir = getOpenCodeConfigDir({ binary: "opencode" });
-  const userBasePath = path.join(configDir, "oh-my-opencode");
+  const userBasePath = path.join(configDir, "only-my-opencode");
   const userDetected = detectConfigFile(userBasePath);
   const userConfigPath =
-    userDetected.format !== "none"
-      ? userDetected.path
-      : userBasePath + ".json";
+    userDetected.format !== "none" ? userDetected.path : userBasePath + ".json";
 
   // Project-level config path - prefer .jsonc over .json
-  const projectBasePath = path.join(directory, ".opencode", "oh-my-opencode");
+  const projectBasePath = path.join(directory, ".opencode", "only-my-opencode");
   const projectDetected = detectConfigFile(projectBasePath);
   const projectConfigPath =
     projectDetected.format !== "none"

@@ -34,6 +34,7 @@ ulw add authentication to my Next.js app
 ```
 
 The agent will automatically:
+
 1. Explore your codebase to understand existing patterns
 2. Research best practices via specialized agents
 3. Implement the feature following your conventions
@@ -61,6 +62,7 @@ For complex or critical tasks, press **Tab** to switch to Prometheus (Planner) m
    - Tracks progress across sessions (resume anytime)
 
 **When to use Prometheus:**
+
 - Multi-day or multi-session projects
 - Critical production changes
 - Complex refactoring spanning many files
@@ -77,6 +79,7 @@ For complex or critical tasks, press **Tab** to switch to Prometheus (Planner) m
 The orchestrator is designed to execute work plans created by Prometheus. Using it directly without a plan leads to unpredictable behavior.
 
 **Correct workflow:**
+
 ```
 1. Press Tab → Enter Prometheus mode
 2. Describe work → Prometheus interviews you
@@ -96,7 +99,8 @@ Oh My OpenCode automatically configures models based on your available providers
 
 **1. At Installation Time (Interactive Installer)**
 
-When you run `bunx oh-my-opencode install`, the installer asks which providers you have:
+When you run `bunx only-my-opencode install`, the installer asks which providers you have:
+
 - Claude Pro/Max subscription?
 - OpenAI/ChatGPT Plus?
 - Google Gemini?
@@ -104,7 +108,7 @@ When you run `bunx oh-my-opencode install`, the installer asks which providers y
 - OpenCode Zen?
 - Z.ai Coding Plan?
 
-Based on your answers, it generates `~/.config/opencode/oh-my-opencode.json` with optimal model assignments for each agent and category.
+Based on your answers, it generates `~/.config/opencode/only-my-opencode.json` with optimal model assignments for each agent and category.
 
 **2. At Runtime (Fallback Chain)**
 
@@ -125,26 +129,27 @@ Here's a real-world config for a user with **Claude, OpenAI, Gemini, and Z.ai** 
 
 ```jsonc
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
   "agents": {
     // Override specific agents only - rest use fallback chain
     "atlas": { "model": "anthropic/claude-sonnet-4-5", "variant": "max" },
     "librarian": { "model": "zai-coding-plan/glm-4.7" },
     "explore": { "model": "opencode/gpt-5-nano" },
-    "multimodal-looker": { "model": "zai-coding-plan/glm-4.6v" }
+    "multimodal-looker": { "model": "zai-coding-plan/glm-4.6v" },
   },
   "categories": {
     // Override categories for cost optimization
     "quick": { "model": "opencode/gpt-5-nano" },
-    "unspecified-low": { "model": "zai-coding-plan/glm-4.7" }
+    "unspecified-low": { "model": "zai-coding-plan/glm-4.7" },
   },
   "experimental": {
-    "aggressive_truncation": true
-  }
+    "aggressive_truncation": true,
+  },
 }
 ```
 
 **Key points:**
+
 - You only need to override what you want to change
 - Unspecified agents/categories use the automatic fallback chain
 - Mix providers freely (Claude for main work, Z.ai for cheap tasks, etc.)
