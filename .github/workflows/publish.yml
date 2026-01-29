@@ -158,7 +158,7 @@ jobs:
           if [ -n "${{ steps.version.outputs.dist_tag }}" ]; then
             TAG_ARG="--tag ${{ steps.version.outputs.dist_tag }}"
           fi
-          npm publish --access public --provenance $TAG_ARG
+          npm publish --provenance $TAG_ARG
         env:
           NPM_CONFIG_PROVENANCE: true
 

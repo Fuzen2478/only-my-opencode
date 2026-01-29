@@ -108,6 +108,6 @@ jobs:
           if [ -n "${{ inputs.dist_tag }}" ]; then
             TAG_ARG="--tag ${{ inputs.dist_tag }}"
           fi
-          npm publish --access public $TAG_ARG
+          npm publish $TAG_ARG
         env:
           NPM_CONFIG_PROVENANCE: false
