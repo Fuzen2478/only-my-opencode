@@ -1,6 +1,6 @@
 {
   "name": "@fuzen2478/only-my-opencode",
-  "version": "3.1.1",
+  "version": "0.0.1",
   "description": "The Best AI Agent Harness - Batteries-Included OpenCode Plugin with Multi-Model Orchestration, Parallel Background Agents, and Crafted LSP/AST Tools",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -76,13 +76,13 @@
     "typescript": "^5.7.3"
   },
   "optionalDependencies": {
-    "@fuzen2478/only-my-opencode-darwin-arm64": "3.1.1",
-    "@fuzen2478/only-my-opencode-darwin-x64": "3.1.1",
-    "@fuzen2478/only-my-opencode-linux-arm64": "3.1.1",
-    "@fuzen2478/only-my-opencode-linux-arm64-musl": "3.1.1",
-    "@fuzen2478/only-my-opencode-linux-x64": "3.1.1",
-    "@fuzen2478/only-my-opencode-linux-x64-musl": "3.1.1",
-    "@fuzen2478/only-my-opencode-windows-x64": "3.1.1"
+    "@fuzen2478/only-my-opencode-darwin-arm64": "0.0.1",
+    "@fuzen2478/only-my-opencode-darwin-x64": "0.0.1",
+    "@fuzen2478/only-my-opencode-linux-arm64": "0.0.1",
+    "@fuzen2478/only-my-opencode-linux-arm64-musl": "0.0.1",
+    "@fuzen2478/only-my-opencode-linux-x64": "0.0.1",
+    "@fuzen2478/only-my-opencode-linux-x64-musl": "0.0.1",
+    "@fuzen2478/only-my-opencode-windows-x64": "0.0.1"
   },
   "trustedDependencies": [
     "@ast-grep/cli",
