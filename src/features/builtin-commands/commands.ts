@@ -39,6 +39,17 @@ $ARGUMENTS
 </user-task>`,
      argumentHint: '"task description" [--completion-promise=TEXT] [--max-iterations=N]',
    },
+   "fu-loop": {
+     description: "(builtin) Start ultrawork loop - continues until completion with ultrawork mode",
+     template: `<command-instruction>
+${RALPH_LOOP_TEMPLATE}
+</command-instruction>
+
+<user-task>
+$ARGUMENTS
+</user-task>`,
+     argumentHint: '"task description" [--completion-promise=TEXT] [--max-iterations=N]',
+   },
   "cancel-ralph": {
     description: "(builtin) Cancel active Ralph Loop",
     template: `<command-instruction>
