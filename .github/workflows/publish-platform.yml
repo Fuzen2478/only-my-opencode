@@ -26,6 +26,7 @@ on:
 permissions:
   contents: read
   id-token: write
+  packages: write
 
 jobs:
   publish-platform:
@@ -50,7 +51,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@fuzen2478"
 
       - name: Install dependencies
         run: bun install
@@ -62,7 +64,8 @@ jobs:
         run: |
           PKG_NAME="@fuzen2478/only-my-opencode-${{ matrix.platform }}"
           VERSION="${{ inputs.version }}"
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode-${{ matrix.platform }}/${VERSION}")
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://npm.pkg.github.com/@fuzen2478/only-my-opencode-${{ matrix.platform }}/${VERSION}")
           if [ "$STATUS" = "200" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "✓ ${PKG_NAME}@${VERSION} already published"
@@ -110,4 +113,4 @@ jobs:
           fi
           npm publish $TAG_ARG
         env:
-          NPM_CONFIG_PROVENANCE: false
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

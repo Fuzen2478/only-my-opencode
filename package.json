@@ -50,6 +50,9 @@
     "url": "https://github.com/Fuzen2478/only-my-opencode/issues"
   },
   "homepage": "https://github.com/Fuzen2478/only-my-opencode#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@ast-grep/cli": "^0.40.0",
     "@ast-grep/napi": "^0.40.0",

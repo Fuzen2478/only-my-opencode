@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/Fuzen2478/only-my-opencode"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "os": [
     "darwin"
   ],

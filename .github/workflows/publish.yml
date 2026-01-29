@@ -29,6 +29,7 @@ permissions:
   contents: write
   id-token: write
   actions: write
+  packages: write
 
 jobs:
   test:
@@ -86,7 +87,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@fuzen2478"
 
       - name: Install dependencies
         run: bun install
@@ -98,7 +100,9 @@ jobs:
         run: |
           VERSION="${{ inputs.version }}"
           if [ -z "$VERSION" ]; then
-            PREV=$(curl -s https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode/latest | jq -r '.version // "0.0.0"')
+            # Try to get latest version from GitHub Packages
+            PREV=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://npm.pkg.github.com/@fuzen2478/only-my-opencode" 2>/dev/null | jq -r '.["dist-tags"].latest // "0.0.0"' 2>/dev/null || echo "0.0.0")
             BASE="${PREV%%-*}"
             IFS='.' read -r MAJOR MINOR PATCH <<< "$BASE"
             case "${{ inputs.bump }}" in
@@ -122,7 +126,9 @@ jobs:
         id: check
         run: |
           VERSION="${{ steps.version.outputs.version }}"
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode/${VERSION}")
+          # Check if version exists in GitHub Packages
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://npm.pkg.github.com/@fuzen2478/only-my-opencode/${VERSION}")
           if [ "$STATUS" = "200" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "✓ @fuzen2478/only-my-opencode@${VERSION} already published"
@@ -158,9 +164,9 @@ jobs:
           if [ -n "${{ steps.version.outputs.dist_tag }}" ]; then
             TAG_ARG="--tag ${{ steps.version.outputs.dist_tag }}"
           fi
-          npm publish --provenance $TAG_ARG
+          npm publish $TAG_ARG
         env:
-          NPM_CONFIG_PROVENANCE: true
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Git commit and tag
         if: steps.check.outputs.skip != 'true'
@@ -215,7 +221,9 @@ jobs:
           fi
           
           if [ -z "$PREV_TAG" ]; then
-            PREV_TAG=$(curl -s https://registry.npmjs.org/@fuzen2478%2Fonly-my-opencode/latest | jq -r '.version // "0.0.0"')
+            # Try to get from GitHub Packages
+            PREV_TAG=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://npm.pkg.github.com/@fuzen2478/only-my-opencode" 2>/dev/null | jq -r '.["dist-tags"].latest // "0.0.0"' 2>/dev/null || echo "0.0.0")
           fi
           
           echo "Comparing v${PREV_TAG}..v${VERSION}"
