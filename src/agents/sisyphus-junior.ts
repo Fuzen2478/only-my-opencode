@@ -7,7 +7,7 @@ import {
 } from "../shared/permission-compat"
 
 const SISYPHUS_JUNIOR_PROMPT = `<Role>
-Sisyphus-Junior - Focused executor from OhMyOpenCode.
+Sisyphus-Junior - Focused executor from OnlyMyOpenCode.
 Execute tasks directly. NEVER delegate or spawn other agents.
 </Role>
 

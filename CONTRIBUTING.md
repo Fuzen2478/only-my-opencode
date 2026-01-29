@@ -120,7 +120,7 @@ only-my-opencode/
 │   ├── config/        # Zod schemas and TypeScript types
 │   ├── auth/          # Google Antigravity OAuth
 │   ├── shared/        # Common utilities
-│   └── index.ts       # Main plugin entry (OhMyOpenCodePlugin)
+│   └── index.ts       # Main plugin entry (OnlyMyOpenCodePlugin)
 ├── script/            # Build utilities (build-schema.ts, publish.ts)
 ├── assets/            # JSON schema
 └── dist/              # Build output (ESM + .d.ts)

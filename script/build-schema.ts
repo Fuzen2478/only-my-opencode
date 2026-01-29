@@ -1,13 +1,13 @@
 #!/usr/bin/env bun
 import * as z from "zod";
-import { OhMyOpenCodeConfigSchema } from "../src/config/schema";
+import { OnlyMyOpenCodeConfigSchema } from "../src/config/schema";
 
 const SCHEMA_OUTPUT_PATH = "assets/only-my-opencode.schema.json";
 
 async function main() {
   console.log("Generating JSON Schema...");
 
-  const jsonSchema = z.toJSONSchema(OhMyOpenCodeConfigSchema, {
+  const jsonSchema = z.toJSONSchema(OnlyMyOpenCodeConfigSchema, {
     io: "input",
     target: "draft-7",
   });

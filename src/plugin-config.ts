@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { OhMyOpenCodeConfigSchema, type OhMyOpenCodeConfig } from "./config";
+import { OnlyMyOpenCodeConfigSchema, type OnlyMyOpenCodeConfig } from "./config";
 import {
   log,
   deepMerge,
@@ -14,7 +14,7 @@ import {
 export function loadConfigFromPath(
   configPath: string,
   ctx: unknown,
-): OhMyOpenCodeConfig | null {
+): OnlyMyOpenCodeConfig | null {
   try {
     if (fs.existsSync(configPath)) {
       const content = fs.readFileSync(configPath, "utf-8");
@@ -22,7 +22,7 @@ export function loadConfigFromPath(
 
       migrateConfigFile(configPath, rawConfig);
 
-      const result = OhMyOpenCodeConfigSchema.safeParse(rawConfig);
+      const result = OnlyMyOpenCodeConfigSchema.safeParse(rawConfig);
 
       if (!result.success) {
         const errorMsg = result.error.issues
@@ -48,9 +48,9 @@ export function loadConfigFromPath(
 }
 
 export function mergeConfigs(
-  base: OhMyOpenCodeConfig,
-  override: OhMyOpenCodeConfig,
-): OhMyOpenCodeConfig {
+  base: OnlyMyOpenCodeConfig,
+  override: OnlyMyOpenCodeConfig,
+): OnlyMyOpenCodeConfig {
   return {
     ...base,
     ...override,
@@ -93,7 +93,7 @@ export function mergeConfigs(
 export function loadPluginConfig(
   directory: string,
   ctx: unknown,
-): OhMyOpenCodeConfig {
+): OnlyMyOpenCodeConfig {
   // User-level config path - prefer .jsonc over .json
   const configDir = getOpenCodeConfigDir({ binary: "opencode" });
   const userBasePath = path.join(configDir, "only-my-opencode");
@@ -110,7 +110,7 @@ export function loadPluginConfig(
       : projectBasePath + ".json";
 
   // Load user config first (base)
-  let config: OhMyOpenCodeConfig =
+  let config: OnlyMyOpenCodeConfig =
     loadConfigFromPath(userConfigPath, ctx) ?? {};
 
   // Override with project config

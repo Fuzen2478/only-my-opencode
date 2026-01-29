@@ -1,11 +1,11 @@
 import { describe, expect, test } from "bun:test"
-import type { OhMyOpenCodeConfig } from "../config"
+import type { OnlyMyOpenCodeConfig } from "../config"
 import { applyAgentVariant, resolveAgentVariant } from "./agent-variant"
 
 describe("resolveAgentVariant", () => {
   test("returns undefined when agent name missing", () => {
     // #given
-    const config = {} as OhMyOpenCodeConfig
+    const config = {} as OnlyMyOpenCodeConfig
 
     // #when
     const variant = resolveAgentVariant(config)
@@ -20,7 +20,7 @@ describe("resolveAgentVariant", () => {
       agents: {
         sisyphus: { variant: "low" },
       },
-    } as OhMyOpenCodeConfig
+    } as OnlyMyOpenCodeConfig
 
     // #when
     const variant = resolveAgentVariant(config, "sisyphus")
@@ -38,7 +38,7 @@ describe("resolveAgentVariant", () => {
       categories: {
         ultrabrain: { model: "openai/gpt-5.2", variant: "xhigh" },
       },
-    } as OhMyOpenCodeConfig
+    } as OnlyMyOpenCodeConfig
 
     // #when
     const variant = resolveAgentVariant(config, "sisyphus")
@@ -55,7 +55,7 @@ describe("applyAgentVariant", () => {
       agents: {
         sisyphus: { variant: "low" },
       },
-    } as OhMyOpenCodeConfig
+    } as OnlyMyOpenCodeConfig
     const message: { variant?: string } = {}
 
     // #when
@@ -71,7 +71,7 @@ describe("applyAgentVariant", () => {
       agents: {
         sisyphus: { variant: "low" },
       },
-    } as OhMyOpenCodeConfig
+    } as OnlyMyOpenCodeConfig
     const message = { variant: "max" }
 
     // #when

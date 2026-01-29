@@ -1,5 +1,5 @@
 export {
-  OhMyOpenCodeConfigSchema,
+  OnlyMyOpenCodeConfigSchema,
   AgentOverrideConfigSchema,
   AgentOverridesSchema,
   McpNameSchema,
@@ -14,7 +14,7 @@ export {
 } from "./schema"
 
 export type {
-  OhMyOpenCodeConfig,
+  OnlyMyOpenCodeConfig,
   AgentOverrideConfig,
   AgentOverrides,
   McpName,

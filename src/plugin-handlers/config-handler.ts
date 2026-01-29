@@ -24,7 +24,7 @@ import {
 import { loadMcpConfigs } from "../features/claude-code-mcp-loader";
 import { loadAllPluginComponents } from "../features/claude-code-plugin-loader";
 import { createBuiltinMcps } from "../mcp";
-import type { OhMyOpenCodeConfig } from "../config";
+import type { OnlyMyOpenCodeConfig } from "../config";
 import {
   log,
   fetchAvailableModels,
@@ -45,7 +45,7 @@ import type { CategoryConfig } from "../config/schema";
 
 export interface ConfigHandlerDeps {
   ctx: { directory: string; client?: any };
-  pluginConfig: OhMyOpenCodeConfig;
+  pluginConfig: OnlyMyOpenCodeConfig;
   modelCacheState: ModelCacheState;
 }
 
@@ -277,7 +277,7 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
           mode: "primary" as const,
           prompt: PROMETHEUS_SYSTEM_PROMPT,
           permission: PROMETHEUS_PERMISSION,
-          description: `${configAgent?.plan?.description ?? "Plan agent"} (Prometheus - OhMyOpenCode)`,
+          description: `${configAgent?.plan?.description ?? "Plan agent"} (Prometheus - OnlyMyOpenCode)`,
           color: (configAgent?.plan?.color as string) ?? "#FF6347",
           ...(categoryConfig?.temperature !== undefined
             ? { temperature: categoryConfig.temperature }

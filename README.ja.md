@@ -1,9 +1,9 @@
 > [!WARNING]
 > **セキュリティ警告：なりすましサイト**
 >
-> **ohmyopencode.comは本プロジェクトとは一切関係ありません。** 当方はそのサイトを運営しておらず、推奨もしていません。
+> **onlymyopencode.comは本プロジェクトとは一切関係ありません。** 当方はそのサイトを運営しておらず、推奨もしていません。
 >
-> OhMyOpenCodeは**無料かつオープンソース**です。「公式」を名乗るサードパーティサイトでインストーラーをダウンロードしたり、支払い情報を入力したり**しないでください**。
+> OnlyMyOpenCodeは**無料かつオープンソース**です。「公式」を名乗るサードパーティサイトでインストーラーをダウンロードしたり、支払い情報を入力したり**しないでください**。
 >
 > なりすましサイトはペイウォールの裏にあるため、**何が配布されているか確認できません**。そこからのダウンロードは**潜在的に危険なもの**として扱ってください。
 >
@@ -90,7 +90,7 @@
 
 > "Oh My Opencodeを使って、たった1日で8000個のeslint警告を解消しました" — [Jacob Ferrari](https://x.com/jacobferrari_/status/2003258761952289061)
 
-> "Ohmyopencodeとralph loopを使って、一晩で45,000行のtauriアプリをSaaSウェブアプリに変換しました。インタビュープロンプトから始めて、質問に対する評価と推奨を求めました。作業する様子を見ているのは驚きでしたし、朝起きたらほぼ完成したウェブサイトがありました！" - [James Hargis](https://x.com/hargabyte/status/2007299688261882202)
+> "OnlyMyOpenCodeとralph loopを使って、一晩で45,000行のtauriアプリをSaaSウェブアプリに変換しました。インタビュープロンプトから始めて、質問に対する評価と推奨を求めました。作業する様子を見ているのは驚きでしたし、朝起きたらほぼ完成したウェブサイトがありました！" - [James Hargis](https://x.com/hargabyte/status/2007299688261882202)
 
 > "only-my-opencodeを使ってください、もう戻れませんよ" — [d0t3ch](https://x.com/d0t3ch/status/2001685618200580503)
 
@@ -352,7 +352,7 @@ OpenCode が Debian / ArchLinux だとしたら、Oh My OpenCode は Ubuntu / [O
   - とはいえ、私が言いふらしますけどね。誰が勝つか賭けましょう。
 - [1.0.132](https://github.com/sst/opencode/releases/tag/v1.0.132) またはそれ以下のバージョンを使用している場合、OpenCode のバグにより設定が正しく行われない可能性があります。
   - [修正 PR](https://github.com/sst/opencode/pull/5040) は 1.0.132 以降にマージされたため、新しいバージョンを使用してください。
-    - 余談：この PR も、OhMyOpenCode の Librarian、Explore、Oracle セットアップを活用して偶然発見され、修正されました。
+    - 余談：この PR も、OnlyMyOpenCode の Librarian、Explore、Oracle セットアップを活用して偶然発見され、修正されました。
 
 ## こちらの企業の専門家にご愛用いただいています
 

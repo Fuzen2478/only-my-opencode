@@ -82,8 +82,8 @@ import { loadPluginConfig } from "./plugin-config";
 import { createModelCacheState, getModelLimit } from "./plugin-state";
 import { createConfigHandler } from "./plugin-handlers";
 
-const OhMyOpenCodePlugin: Plugin = async (ctx) => {
-  log("[OhMyOpenCodePlugin] ENTRY - plugin loading", { directory: ctx.directory })
+const OnlyMyOpenCodePlugin: Plugin = async (ctx) => {
+  log("[OnlyMyOpenCodePlugin] ENTRY - plugin loading", { directory: ctx.directory })
   // Start background tmux check immediately
   startTmuxCheck();
 
@@ -653,10 +653,10 @@ await editErrorRecovery?.["tool.execute.after"](input, output);
   };
 };
 
-export default OhMyOpenCodePlugin;
+export default OnlyMyOpenCodePlugin;
 
 export type {
-  OhMyOpenCodeConfig,
+  OnlyMyOpenCodeConfig,
   AgentName,
   AgentOverrideConfig,
   AgentOverrides,

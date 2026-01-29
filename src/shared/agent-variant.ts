@@ -1,8 +1,8 @@
-import type { OhMyOpenCodeConfig } from "../config"
+import type { OnlyMyOpenCodeConfig } from "../config"
 import { findCaseInsensitive } from "./case-insensitive"
 
 export function resolveAgentVariant(
-  config: OhMyOpenCodeConfig,
+  config: OnlyMyOpenCodeConfig,
   agentName?: string
 ): string | undefined {
   if (!agentName) {
@@ -30,7 +30,7 @@ export function resolveAgentVariant(
 }
 
 export function applyAgentVariant(
-  config: OhMyOpenCodeConfig,
+  config: OnlyMyOpenCodeConfig,
   agentName: string | undefined,
   message: { variant?: string }
 ): void {

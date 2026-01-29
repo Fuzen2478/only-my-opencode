@@ -1,6 +1,6 @@
 import { describe, expect, it } from "bun:test";
 import { mergeConfigs } from "./plugin-config";
-import type { OhMyOpenCodeConfig } from "./config";
+import type { OnlyMyOpenCodeConfig } from "./config";
 
 describe("mergeConfigs", () => {
   describe("categories merging", () => {
@@ -19,7 +19,7 @@ describe("mergeConfigs", () => {
             model: "anthropic/claude-haiku-4-5",
           },
         },
-      } as OhMyOpenCodeConfig;
+      } as OnlyMyOpenCodeConfig;
 
       const override = {
         categories: {
@@ -30,7 +30,7 @@ describe("mergeConfigs", () => {
             model: "google/gemini-3-pro",
           },
         },
-      } as unknown as OhMyOpenCodeConfig;
+      } as unknown as OnlyMyOpenCodeConfig;
 
       const result = mergeConfigs(base, override);
 
@@ -45,7 +45,7 @@ describe("mergeConfigs", () => {
     });
 
     it("should preserve base categories when override has no categories", () => {
-      const base: OhMyOpenCodeConfig = {
+      const base: OnlyMyOpenCodeConfig = {
         categories: {
           general: {
             model: "openai/gpt-5.2",
@@ -53,7 +53,7 @@ describe("mergeConfigs", () => {
         },
       };
 
-      const override: OhMyOpenCodeConfig = {};
+      const override: OnlyMyOpenCodeConfig = {};
 
       const result = mergeConfigs(base, override);
 
@@ -61,9 +61,9 @@ describe("mergeConfigs", () => {
     });
 
     it("should use override categories when base has no categories", () => {
-      const base: OhMyOpenCodeConfig = {};
+      const base: OnlyMyOpenCodeConfig = {};
 
-      const override: OhMyOpenCodeConfig = {
+      const override: OnlyMyOpenCodeConfig = {
         categories: {
           general: {
             model: "openai/gpt-5.2",
@@ -79,13 +79,13 @@ describe("mergeConfigs", () => {
 
   describe("existing behavior preservation", () => {
     it("should deep merge agents", () => {
-      const base: OhMyOpenCodeConfig = {
+      const base: OnlyMyOpenCodeConfig = {
         agents: {
           oracle: { model: "openai/gpt-5.2" },
         },
       };
 
-      const override: OhMyOpenCodeConfig = {
+      const override: OnlyMyOpenCodeConfig = {
         agents: {
           oracle: { temperature: 0.5 },
           explore: { model: "anthropic/claude-haiku-4-5" },
@@ -100,11 +100,11 @@ describe("mergeConfigs", () => {
     });
 
     it("should merge disabled arrays without duplicates", () => {
-      const base: OhMyOpenCodeConfig = {
+      const base: OnlyMyOpenCodeConfig = {
         disabled_hooks: ["comment-checker", "think-mode"],
       };
 
-      const override: OhMyOpenCodeConfig = {
+      const override: OnlyMyOpenCodeConfig = {
         disabled_hooks: ["think-mode", "session-recovery"],
       };
 

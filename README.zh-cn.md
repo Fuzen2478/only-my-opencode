@@ -1,9 +1,9 @@
 > [!WARNING]
 > **安全警告：冒充网站**
 >
-> **ohmyopencode.com 与本项目无关。** 我们不运营或认可该网站。
+> **onlymyopencode.com 与本项目无关。** 我们不运营或认可该网站。
 >
-> OhMyOpenCode 是**免费且开源的**。请**勿**在声称"官方"的第三方网站下载安装程序或输入付款信息。
+> OnlyMyOpenCode 是**免费且开源的**。请**勿**在声称"官方"的第三方网站下载安装程序或输入付款信息。
 >
 > 由于该冒充网站设有付费墙，我们**无法验证其分发的内容**。请将来自该网站的任何下载视为**潜在不安全**。
 >
@@ -90,7 +90,7 @@
 
 > "用 Oh My Opencode 仅用一天就清理了 8000 个 eslint 警告" — [Jacob Ferrari](https://x.com/jacobferrari_/status/2003258761952289061)
 
-> "我使用 Ohmyopencode 和 ralph loop 在一夜之间将一个 45k 行的 tauri 应用转换成了 SaaS Web 应用。从访谈提示开始，要求它对问题进行评分和建议。看着它工作非常精彩，今早醒来发现网站基本上已经可以运行了！" - [James Hargis](https://x.com/hargabyte/status/2007299688261882202)
+> "我使用 OnlyMyOpenCode 和 ralph loop 在一夜之间将一个 45k 行的 tauri 应用转换成了 SaaS Web 应用。从访谈提示开始，要求它对问题进行评分和建议。看着它工作非常精彩，今早醒来发现网站基本上已经可以运行了！" - [James Hargis](https://x.com/hargabyte/status/2007299688261882202)
 
 > "用了 only-my-opencode，你再也不会回头了" — [d0t3ch](https://x.com/d0t3ch/status/2001685618200580503)
 
@@ -223,7 +223,7 @@ _以下所有内容都是可配置的。按需选取。所有功能默认启用�
 8. 老实说，甚至不用费心读文档。只需写你的提示。包含 'ultrawork' 关键词。Sisyphus 会分析结构，收集上下文，挖掘外部源代码，然后持续推进直到工作 100% 完成。
 9. 其实，打 'ultrawork' 太费劲了。只需打 'ulw'。就 ulw。喝杯咖啡。你的工作完成了。
 
-需要查找什么？它会搜索官方文档、你的整个代码库历史和公共 GitHub 实现——不仅使用 grep，还使用内置的 LSP 工具和 AST-Grep。3. 在委派给 LLM 时不用担心上下文管理。我已经处理好了。- OhMyOpenCode 积极利用多个智能体来减轻上下文负担。- **你的智能体现在是开发团队负责人。你是 AI 经理。** 4. 它不会停止，直到工作完成。5. 不想深入研究这个项目？没问题。只需输入 'ultrathink'。
+需要查找什么？它会搜索官方文档、你的整个代码库历史和公共 GitHub 实现——不仅使用 grep，还使用内置的 LSP 工具和 AST-Grep。3. 在委派给 LLM 时不用担心上下文管理。我已经处理好了。- OnlyMyOpenCode 积极利用多个智能体来减轻上下文负担。- **你的智能体现在是开发团队负责人。你是 AI 经理。** 4. 它不会停止，直到工作完成。5. 不想深入研究这个项目？没问题。只需输入 'ultrathink'。
 
 如果你不想要这些全部功能，如前所述，你可以只选择特定功能。
 
@@ -358,7 +358,7 @@ curl -s https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/hea
   - 其实，我会传播这个消息。让我们看看谁会赢。
 - 如果你使用 [1.0.132](https://github.com/sst/opencode/releases/tag/v1.0.132) 或更早版本，一个 OpenCode bug 可能会破坏配置。
   - [修复](https://github.com/sst/opencode/pull/5040)在 1.0.132 之后合并——使用更新的版本。
-    - 有趣的事实：那个 PR 是借助 OhMyOpenCode 的 Librarian、Explore 和 Oracle 设置发现并修复的。
+    - 有趣的事实：那个 PR 是借助 OnlyMyOpenCode 的 Librarian、Explore 和 Oracle 设置发现并修复的。
 
 ## 受到以下专业人士的喜爱
 

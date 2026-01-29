@@ -1,13 +1,13 @@
 > [!WARNING]
 > **Security warning: impersonation site**
 >
-> **ohmyopencode.com is NOT affiliated with this project.** We do not operate or endorse that site.
+> **onlymyopencode.com is NOT affiliated with this project.** We do not operate or endorse that site.
 >
-> OhMyOpenCode is **free and open-source**. Do **not** download installers or enter payment details on third-party sites that claim to be "official."
+> OnlyMyOpenCode is **free and open-source**. Do **not** download installers or enter payment details on third-party sites that claim to be "official."
 >
 > Because the impersonation site is behind a paywall, we **cannot verify what it distributes**. Treat any downloads from it as **potentially unsafe**.
 >
-> ✅ Official downloads: https://github.com/code-yeongyu/only-my-opencode/releases
+> ✅ Official downloads: https://github.com/Fuzen2478/only-my-opencode/releases
 
 > [!NOTE]
 >
@@ -89,7 +89,7 @@ Yes, technically possible. But I cannot recommend using it.
 
 > "Knocked out 8000 eslint warnings with Oh My Opencode, just in a day" — [Jacob Ferrari](https://x.com/jacobferrari_/status/2003258761952289061)
 
-> "I converted a 45k line tauri app into a SaaS web app overnight using Ohmyopencode and ralph loop. Started with interview me prompt, asked it for ratings and recommendations on the questions. It was amazing to watch it work and to wake up this morning to a mostly working website!" - [James Hargis](https://x.com/hargabyte/status/2007299688261882202)
+> "I converted a 45k line tauri app into a SaaS web app overnight using OnlyMyOpenCode and ralph loop. Started with interview me prompt, asked it for ratings and recommendations on the questions. It was amazing to watch it work and to wake up this morning to a mostly working website!" - [James Hargis](https://x.com/hargabyte/status/2007299688261882202)
 
 > "use only-my-opencode, you will never go back" — [d0t3ch](https://x.com/d0t3ch/status/2001685618200580503)
 
@@ -226,7 +226,7 @@ Just by installing this, you make your agents to work like:
 1. Honestly, don't even bother reading the docs. Just write your prompt. Include the 'ultrawork' keyword. Sisyphus will analyze the structure, gather the context, dig through external source code, and just keep bouldering until the job is 100% complete.
 1. Actually, typing 'ultrawork' is too much effort. Just type 'ulw'. Just ulw. Sip your coffee. Your work is done.
 
-Need to look something up? It scours official docs, your entire codebase history, and public GitHub implementations—using not just grep but built-in LSP tools and AST-Grep. 3. Stop worrying about context management when delegating to LLMs. I've got it covered. - OhMyOpenCode aggressively leverages multiple agents to lighten the context load. - **Your agent is now the dev team lead. You're the AI Manager.** 4. It doesn't stop until the job is done. 5. Don't want to dive deep into this project? No problem. Just type 'ultrathink'.
+Need to look something up? It scours official docs, your entire codebase history, and public GitHub implementations—using not just grep but built-in LSP tools and AST-Grep. 3. Stop worrying about context management when delegating to LLMs. I've got it covered. - OnlyMyOpenCode aggressively leverages multiple agents to lighten the context load. - **Your agent is now the dev team lead. You're the AI Manager.** 4. It doesn't stop until the job is done. 5. Don't want to dive deep into this project? No problem. Just type 'ultrathink'.
 
 If you don't want all this, as mentioned, you can just pick and choose specific features.
 
@@ -361,7 +361,7 @@ I have no affiliation with any project or model mentioned here. This is purely p
   - Actually, I'll spread the word. Let's see who wins.
 - If you're on [1.0.132](https://github.com/sst/opencode/releases/tag/v1.0.132) or older, an OpenCode bug may break config.
   - [The fix](https://github.com/sst/opencode/pull/5040) was merged after 1.0.132—use a newer version.
-    - Fun fact: That PR was discovered and fixed thanks to OhMyOpenCode's Librarian, Explore, and Oracle setup.
+    - Fun fact: That PR was discovered and fixed thanks to OnlyMyOpenCode's Librarian, Explore, and Oracle setup.
 
 ## Loved by professionals at
 
