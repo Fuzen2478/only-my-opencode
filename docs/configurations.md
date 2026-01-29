@@ -16,7 +16,7 @@ It asks about your providers (Claude, OpenAI, Gemini, etc.) and generates optima
 
 ```jsonc
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/fuzen2478/only-my-opencode/master/assets/only-my-opencode.schema.json",
 
   // Override specific agent models
   "agents": {
@@ -51,7 +51,7 @@ Schema autocomplete supported:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json"
+  "$schema": "https://raw.githubusercontent.com/fuzen2478/only-my-opencode/master/assets/only-my-opencode.schema.json"
 }
 ```
 
@@ -69,7 +69,7 @@ When both `only-my-opencode.jsonc` and `only-my-opencode.json` files exist, `.js
 
 ```jsonc
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/fuzen2478/only-my-opencode/master/assets/only-my-opencode.schema.json",
 
   /* Agent overrides - customize models for specific tasks */
   "agents": {

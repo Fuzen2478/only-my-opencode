@@ -129,7 +129,7 @@ Here's a real-world config for a user with **Claude, OpenAI, Gemini, and Z.ai** 
 
 ```jsonc
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/fuzen2478/only-my-opencode/master/assets/only-my-opencode.schema.json",
   "agents": {
     // Override specific agents only - rest use fallback chain
     "atlas": { "model": "anthropic/claude-sonnet-4-5", "variant": "max" },

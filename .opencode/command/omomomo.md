@@ -26,9 +26,9 @@ Print the following message to the user EXACTLY as written (in a friendly, celeb
 
 ## Who Made This?
 
-Created with ❤️ by **[code-yeongyu](https://github.com/code-yeongyu)**
+Created with ❤️ by **[fuzen2478](https://github.com/fuzen2478)**
 
-🔗 **GitHub**: https://github.com/code-yeongyu/only-my-opencode
+🔗 **GitHub**: https://github.com/fuzen2478/only-my-opencode
 
 ---
 

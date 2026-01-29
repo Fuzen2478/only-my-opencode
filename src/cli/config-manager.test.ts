@@ -282,7 +282,7 @@ describe("generateOmoConfig - model fallback system", () => {
 
     // #then should use native anthropic sonnet (cost-efficient for standard plan)
     expect(result.$schema).toBe(
-      "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
+      "https://raw.githubusercontent.com/fuzen2478/only-my-opencode/master/assets/only-my-opencode.schema.json",
     );
     expect(result.agents).toBeDefined();
     expect(
@@ -349,7 +349,7 @@ describe("generateOmoConfig - model fallback system", () => {
 
     // #then should use ultimate fallback for all agents
     expect(result.$schema).toBe(
-      "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
+      "https://raw.githubusercontent.com/fuzen2478/only-my-opencode/master/assets/only-my-opencode.schema.json",
     );
     expect(
       (result.agents as Record<string, { model: string }>).sisyphus.model,

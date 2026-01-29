@@ -313,7 +313,7 @@ export function createConfigHandler(deps: ConfigHandlerDeps) {
                 if (key === "plan" && replacePlan) return false;
                 // Filter out agents that only-my-opencode provides to prevent
                 // OpenCode defaults from overwriting user config in only-my-opencode.json
-                // See: https://github.com/code-yeongyu/only-my-opencode/issues/472
+                // See: https://github.com/fuzen2478/only-my-opencode/issues/472
                 if (key in builtinAgents) return false;
                 return true;
               })

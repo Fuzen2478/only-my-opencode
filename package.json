@@ -57,7 +57,7 @@
     "@ast-grep/cli": "^0.40.0",
     "@ast-grep/napi": "^0.40.0",
     "@clack/prompts": "^0.11.0",
-    "@code-yeongyu/comment-checker": "^0.6.1",
+    "@fuzen2478/comment-checker": "^0.6.1",
     "@modelcontextprotocol/sdk": "^1.25.1",
     "@opencode-ai/plugin": "^1.1.19",
     "@opencode-ai/sdk": "^1.1.19",
@@ -87,6 +87,6 @@
   "trustedDependencies": [
     "@ast-grep/cli",
     "@ast-grep/napi",
-    "@code-yeongyu/comment-checker"
+    "@fuzen2478/comment-checker"
   ]
 }

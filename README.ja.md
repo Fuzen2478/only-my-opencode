@@ -7,7 +7,7 @@
 >
 > なりすましサイトはペイウォールの裏にあるため、**何が配布されているか確認できません**。そこからのダウンロードは**潜在的に危険なもの**として扱ってください。
 >
-> ✅ 公式ダウンロード：https://github.com/code-yeongyu/only-my-opencode/releases
+> ✅ 公式ダウンロード：https://github.com/fuzen2478/only-my-opencode/releases
 
 > [!NOTE]
 >
@@ -17,7 +17,7 @@
 
 > [!TIP]
 >
-> [![Oh My OpenCode 3.0が正式リリースされました！](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/code-yeongyu/only-my-opencode/releases/tag/v3.0.0)
+> [![Oh My OpenCode 3.0が正式リリースされました！](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/fuzen2478/only-my-opencode/releases/tag/v3.0.0)
 >
 > > **Oh My OpenCode 3.0が正式リリースされました！`only-my-opencode@latest`を使用してインストールしてください。**
 >
@@ -26,15 +26,15 @@
 > | [<img alt="Discord link" src="https://img.shields.io/discord/1452487457085063218?color=5865F2&label=discord&labelColor=black&logo=discord&logoColor=white&style=flat-square" width="156px" />](https://discord.gg/PUwSMR9XNk) | [Discordコミュニティ](https://discord.gg/PUwSMR9XNk)に参加して、コントリビューターや`only-my-opencode`仲間とつながりましょう。                                                       |
 > | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 > | [<img alt="X link" src="https://img.shields.io/badge/Follow-%40justsisyphus-00CED1?style=flat-square&logo=x&labelColor=black" width="156px" />](https://x.com/justsisyphus)                                                   | `only-my-opencode`に関するニュースは私のXアカウントで投稿していましたが、無実の罪で凍結されたため、<br />[@justsisyphus](https://x.com/justsisyphus)が代わりに更新を投稿しています。 |
-> | [<img alt="GitHub Follow" src="https://img.shields.io/github/followers/code-yeongyu?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/code-yeongyu)                           | GitHubで[@code-yeongyu](https://github.com/code-yeongyu)をフォローして、他のプロジェクトもチェックしてください。                                                                     |
+> | [<img alt="GitHub Follow" src="https://img.shields.io/github/followers/fuzen2478?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/fuzen2478)                                 | GitHubで[@fuzen2478](https://github.com/fuzen2478)をフォローして、他のプロジェクトもチェックしてください。                                                                           |
 
 <!-- <CENTERED SECTION FOR GITHUB DISPLAY> -->
 
 <div align="center">
 
-[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
+[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/fuzen2478/only-my-opencode#only-my-opencode)
 
-[![Preview](./.github/assets/omo.png)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
+[![Preview](./.github/assets/omo.png)](https://github.com/fuzen2478/only-my-opencode#only-my-opencode)
 
 </div>
 
@@ -66,17 +66,17 @@
 
 <div align="center">
 
-[![GitHub Release](https://img.shields.io/github/v/release/code-yeongyu/only-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/fuzen2478/only-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/releases)
 [![npm downloads](https://img.shields.io/npm/dt/only-my-opencode?color=ff6b35&labelColor=black&style=flat-square)](https://www.npmjs.com/package/only-my-opencode)
-[![GitHub Contributors](https://img.shields.io/github/contributors/code-yeongyu/only-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/graphs/contributors)
-[![GitHub Forks](https://img.shields.io/github/forks/code-yeongyu/only-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/network/members)
-[![GitHub Stars](https://img.shields.io/github/stars/code-yeongyu/only-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/code-yeongyu/only-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/issues)
-[![License](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/blob/master/LICENSE.md)
+[![GitHub Contributors](https://img.shields.io/github/contributors/fuzen2478/only-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/graphs/contributors)
+[![GitHub Forks](https://img.shields.io/github/forks/fuzen2478/only-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/network/members)
+[![GitHub Stars](https://img.shields.io/github/stars/fuzen2478/only-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/fuzen2478/only-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/issues)
+[![License](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/blob/master/LICENSE.md)
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-cn.md)
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/code-yeongyu/only-my-opencode)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/fuzen2478/only-my-opencode)
 
 </div>
 
@@ -229,7 +229,7 @@ _以下の内容はすべてカスタマイズ可能です。必要なものだ�
 
 ```
 only-my-opencode をインストールして設定してください。以下の手順に従ってください：
-https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
+https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 または [インストールガイド](docs/guide/installation.md) を直接読んでください。ただし、エージェントに任せることを強くお勧めします。人間はミスをしますが、エージェントはしません。
@@ -239,7 +239,7 @@ https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/maste
 インストールガイドを取得して、その指示に従ってください：
 
 ```bash
-curl -s https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
+curl -s https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 ## アンインストール

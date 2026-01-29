@@ -96,7 +96,7 @@ export function injectGitMasterConfig(
     sections.push(`1. **Footer in commit body:**`);
     sections.push("```");
     sections.push(
-      `Ultraworked with [Sisyphus](https://github.com/code-yeongyu/only-my-opencode)`,
+      `Ultraworked with [Sisyphus](https://github.com/fuzen2478/only-my-opencode)`,
     );
     sections.push("```");
     sections.push(``);
@@ -114,14 +114,14 @@ export function injectGitMasterConfig(
     sections.push(`**Example (both enabled):**`);
     sections.push("```bash");
     sections.push(
-      `git commit -m "{Commit Message}" -m "Ultraworked with [Sisyphus](https://github.com/code-yeongyu/only-my-opencode)" -m "Co-authored-by: Sisyphus <clio-agent@sisyphuslabs.ai>"`,
+      `git commit -m "{Commit Message}" -m "Ultraworked with [Sisyphus](https://github.com/fuzen2478/only-my-opencode)" -m "Co-authored-by: Sisyphus <clio-agent@sisyphuslabs.ai>"`,
     );
     sections.push("```");
   } else if (commitFooter) {
     sections.push(`**Example:**`);
     sections.push("```bash");
     sections.push(
-      `git commit -m "{Commit Message}" -m "Ultraworked with [Sisyphus](https://github.com/code-yeongyu/only-my-opencode)"`,
+      `git commit -m "{Commit Message}" -m "Ultraworked with [Sisyphus](https://github.com/fuzen2478/only-my-opencode)"`,
     );
     sections.push("```");
   } else if (includeCoAuthoredBy) {

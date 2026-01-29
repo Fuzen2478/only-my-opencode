@@ -431,7 +431,7 @@ describe("generateModelConfig", () => {
 
       // #then should include correct schema URL
       expect(result.$schema).toBe(
-        "https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/master/assets/only-my-opencode.schema.json",
+        "https://raw.githubusercontent.com/fuzen2478/only-my-opencode/master/assets/only-my-opencode.schema.json",
       );
     });
   });

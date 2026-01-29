@@ -131,7 +131,7 @@ export function buildAgent(
  * Creates OmO-specific environment context (time, timezone, locale).
  * Note: Working directory, platform, and date are already provided by OpenCode's system.ts,
  * so we only include fields that OpenCode doesn't provide to avoid duplication.
- * See: https://github.com/code-yeongyu/only-my-opencode/issues/379
+ * See: https://github.com/fuzen2478/only-my-opencode/issues/379
  */
 export function createEnvContext(): string {
   const now = new Date();

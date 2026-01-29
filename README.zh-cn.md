@@ -7,7 +7,7 @@
 >
 > 由于该冒充网站设有付费墙，我们**无法验证其分发的内容**。请将来自该网站的任何下载视为**潜在不安全**。
 >
-> ✅ 官方下载地址：https://github.com/code-yeongyu/only-my-opencode/releases
+> ✅ 官方下载地址：https://github.com/fuzen2478/only-my-opencode/releases
 
 > [!NOTE]
 >
@@ -17,7 +17,7 @@
 
 > [!TIP]
 >
-> [![Oh My OpenCode 3.0 正式发布！](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/code-yeongyu/only-my-opencode/releases/tag/v3.0.0)
+> [![Oh My OpenCode 3.0 正式发布！](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/fuzen2478/only-my-opencode/releases/tag/v3.0.0)
 >
 > > **Oh My OpenCode 3.0 正式发布！使用 `only-my-opencode@latest` 安装。**
 >
@@ -26,15 +26,15 @@
 > | [<img alt="Discord 链接" src="https://img.shields.io/discord/1452487457085063218?color=5865F2&label=discord&labelColor=black&logo=discord&logoColor=white&style=flat-square" width="156px" />](https://discord.gg/PUwSMR9XNk) | 加入我们的 [Discord 社区](https://discord.gg/PUwSMR9XNk)，与贡献者和 `only-my-opencode` 用户交流。                                              |
 > | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 > | [<img alt="X 链接" src="https://img.shields.io/badge/Follow-%40justsisyphus-00CED1?style=flat-square&logo=x&labelColor=black" width="156px" />](https://x.com/justsisyphus)                                                   | `only-my-opencode` 的新闻和更新曾在我的 X 账号上发布。<br /> 由于账号被错误封禁，[@justsisyphus](https://x.com/justsisyphus) 现在代为发布更新。 |
-> | [<img alt="GitHub 关注" src="https://img.shields.io/github/followers/code-yeongyu?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/code-yeongyu)                             | 在 GitHub 上关注 [@code-yeongyu](https://github.com/code-yeongyu) 获取更多项目。                                                                |
+> | [<img alt="GitHub 关注" src="https://img.shields.io/github/followers/fuzen2478?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/fuzen2478)                                   | 在 GitHub 上关注 [@fuzen2478](https://github.com/fuzen2478) 获取更多项目。                                                                      |
 
 <!-- <居中展示区域> -->
 
 <div align="center">
 
-[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
+[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/fuzen2478/only-my-opencode#only-my-opencode)
 
-[![预览](./.github/assets/omo.png)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
+[![预览](./.github/assets/omo.png)](https://github.com/fuzen2478/only-my-opencode#only-my-opencode)
 
 </div>
 
@@ -66,17 +66,17 @@
 
 <div align="center">
 
-[![GitHub 发布](https://img.shields.io/github/v/release/code-yeongyu/only-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/releases)
+[![GitHub 发布](https://img.shields.io/github/v/release/fuzen2478/only-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/releases)
 [![npm 下载量](https://img.shields.io/npm/dt/only-my-opencode?color=ff6b35&labelColor=black&style=flat-square)](https://www.npmjs.com/package/only-my-opencode)
-[![GitHub 贡献者](https://img.shields.io/github/contributors/code-yeongyu/only-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/graphs/contributors)
-[![GitHub Forks](https://img.shields.io/github/forks/code-yeongyu/only-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/network/members)
-[![GitHub Stars](https://img.shields.io/github/stars/code-yeongyu/only-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/code-yeongyu/only-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/issues)
-[![许可证](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/blob/master/LICENSE.md)
+[![GitHub 贡献者](https://img.shields.io/github/contributors/fuzen2478/only-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/graphs/contributors)
+[![GitHub Forks](https://img.shields.io/github/forks/fuzen2478/only-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/network/members)
+[![GitHub Stars](https://img.shields.io/github/stars/fuzen2478/only-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/fuzen2478/only-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/issues)
+[![许可证](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/blob/master/LICENSE.md)
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-cn.md)
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/code-yeongyu/only-my-opencode)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/fuzen2478/only-my-opencode)
 
 </div>
 
@@ -235,7 +235,7 @@ _以下所有内容都是可配置的。按需选取。所有功能默认启用�
 
 ```
 按照以下说明安装和配置 only-my-opencode：
-https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
+https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 或者直接阅读 [安装指南](docs/guide/installation.md)——但我们强烈建议让智能体来处理。人会犯错，智能体不会。
@@ -245,7 +245,7 @@ https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/maste
 获取安装指南并按照说明操作：
 
 ```bash
-curl -s https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
+curl -s https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 ## 卸载

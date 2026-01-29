@@ -17,7 +17,7 @@
 
 > [!TIP]
 >
-> [![Oh My OpenCode 3.0 is now stable!](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/code-yeongyu/only-my-opencode/releases/tag/v3.0.0)
+> [![Oh My OpenCode 3.0 is now stable!](./.github/assets/orchestrator-atlas.png?v=3)](https://github.com/fuzen2478/only-my-opencode/releases/tag/v3.0.0)
 >
 > > **Oh My OpenCode 3.0 is now stable! Use `only-my-opencode@latest` to install it.**
 >
@@ -26,15 +26,15 @@
 > | [<img alt="Discord link" src="https://img.shields.io/discord/1452487457085063218?color=5865F2&label=discord&labelColor=black&logo=discord&logoColor=white&style=flat-square" width="156px" />](https://discord.gg/PUwSMR9XNk) | Join our [Discord community](https://discord.gg/PUwSMR9XNk) to connect with contributors and fellow `only-my-opencode` users.                                                                    |
 > | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 > | [<img alt="X link" src="https://img.shields.io/badge/Follow-%40justsisyphus-00CED1?style=flat-square&logo=x&labelColor=black" width="156px" />](https://x.com/justsisyphus)                                                   | News and updates for `only-my-opencode` used to be posted on my X account. <br /> Since it was suspended mistakenly, [@justsisyphus](https://x.com/justsisyphus) now posts updates on my behalf. |
-> | [<img alt="GitHub Follow" src="https://img.shields.io/github/followers/code-yeongyu?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/code-yeongyu)                           | Follow [@code-yeongyu](https://github.com/code-yeongyu) on GitHub for more projects.                                                                                                             |
+> | [<img alt="GitHub Follow" src="https://img.shields.io/github/followers/fuzen2478?style=flat-square&logo=github&labelColor=black&color=24292f" width="156px" />](https://github.com/fuzen2478)                                 | Follow [@fuzen2478](https://github.com/fuzen2478) on GitHub for more projects.                                                                                                                   |
 
 <!-- <CENTERED SECTION FOR GITHUB DISPLAY> -->
 
 <div align="center">
 
-[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
+[![Oh My OpenCode](./.github/assets/hero.jpg)](https://github.com/fuzen2478/only-my-opencode#only-my-opencode)
 
-[![Preview](./.github/assets/omo.png)](https://github.com/code-yeongyu/only-my-opencode#only-my-opencode)
+[![Preview](./.github/assets/omo.png)](https://github.com/fuzen2478/only-my-opencode#only-my-opencode)
 
 </div>
 
@@ -66,14 +66,14 @@ Yes, technically possible. But I cannot recommend using it.
 
 <div align="center">
 
-[![GitHub Release](https://img.shields.io/github/v/release/code-yeongyu/only-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/fuzen2478/only-my-opencode?color=369eff&labelColor=black&logo=github&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/releases)
 [![npm downloads](https://img.shields.io/npm/dt/only-my-opencode?color=ff6b35&labelColor=black&style=flat-square)](https://www.npmjs.com/package/only-my-opencode)
-[![GitHub Contributors](https://img.shields.io/github/contributors/code-yeongyu/only-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/graphs/contributors)
-[![GitHub Forks](https://img.shields.io/github/forks/code-yeongyu/only-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/network/members)
-[![GitHub Stars](https://img.shields.io/github/stars/code-yeongyu/only-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/code-yeongyu/only-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/issues)
-[![License](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/code-yeongyu/only-my-opencode/blob/master/LICENSE.md)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/code-yeongyu/only-my-opencode)
+[![GitHub Contributors](https://img.shields.io/github/contributors/fuzen2478/only-my-opencode?color=c4f042&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/graphs/contributors)
+[![GitHub Forks](https://img.shields.io/github/forks/fuzen2478/only-my-opencode?color=8ae8ff&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/network/members)
+[![GitHub Stars](https://img.shields.io/github/stars/fuzen2478/only-my-opencode?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/fuzen2478/only-my-opencode?color=ff80eb&labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/issues)
+[![License](https://img.shields.io/badge/license-SUL--1.0-white?labelColor=black&style=flat-square)](https://github.com/fuzen2478/only-my-opencode/blob/master/LICENSE.md)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/fuzen2478/only-my-opencode)
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-cn.md)
 
@@ -172,7 +172,7 @@ Hand this doc to an agent and let them set it up.
 As following:
 
 ```
-Hey please read this readme and tell me why it is different from other agent harness? why is this actually good? https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/dev/README.md
+Hey please read this readme and tell me why it is different from other agent harness? why is this actually good? https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/dev/README.md
 ```
 
 ### 🪄 The Magic Word: `ultrawork`
@@ -238,7 +238,7 @@ Copy and paste this prompt to your LLM agent (Claude Code, AmpCode, Cursor, etc.
 
 ```
 Install and configure only-my-opencode by following the instructions here:
-https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
+https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 Or read the [Installation Guide](docs/guide/installation.md) directly—but **we strongly recommend letting an agent handle it. Humans make mistakes.**
@@ -248,7 +248,7 @@ Or read the [Installation Guide](docs/guide/installation.md) directly—but **we
 Fetch the installation guide and follow it:
 
 ```bash
-curl -s https://raw.githubusercontent.com/code-yeongyu/only-my-opencode/refs/heads/master/docs/guide/installation.md
+curl -s https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
 ```
 
 ## Uninstallation
