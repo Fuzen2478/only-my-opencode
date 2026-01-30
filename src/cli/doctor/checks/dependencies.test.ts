@@ -28,18 +28,7 @@ describe("dependencies check", () => {
     })
   })
 
-  describe("checkCommentChecker", () => {
-    it("returns dependency info", async () => {
-      // #given
-      // #when checking comment checker
-      const info = await deps.checkCommentChecker()
 
-      // #then should return valid info
-      expect(info.name).toBe("Comment Checker")
-      expect(info.required).toBe(false)
-      expect(typeof info.installed).toBe("boolean")
-    })
-  })
 
   describe("checkDependencyAstGrepCli", () => {
     let checkSpy: ReturnType<typeof spyOn>
@@ -111,31 +100,7 @@ describe("dependencies check", () => {
     })
   })
 
-  describe("checkDependencyCommentChecker", () => {
-    let checkSpy: ReturnType<typeof spyOn>
 
-    afterEach(() => {
-      checkSpy?.mockRestore()
-    })
-
-    it("returns warn when not installed", async () => {
-      // #given comment checker not installed
-      checkSpy = spyOn(deps, "checkCommentChecker").mockResolvedValue({
-        name: "Comment Checker",
-        required: false,
-        installed: false,
-        version: null,
-        path: null,
-        installHint: "Hook will be disabled if not available",
-      })
-
-      // #when checking
-      const result = await deps.checkDependencyCommentChecker()
-
-      // #then should warn
-      expect(result.status).toBe("warn")
-    })
-  })
 
   describe("getDependencyCheckDefinitions", () => {
     it("returns definitions for all dependencies", () => {
@@ -144,7 +109,7 @@ describe("dependencies check", () => {
       const defs = deps.getDependencyCheckDefinitions()
 
       // #then should have 3 definitions
-      expect(defs.length).toBe(3)
+      expect(defs.length).toBe(2)
       expect(defs.every((d) => d.category === "dependencies")).toBe(true)
       expect(defs.every((d) => d.critical === false)).toBe(true)
     })

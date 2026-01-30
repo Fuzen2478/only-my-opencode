@@ -101,7 +101,7 @@ describe("mergeConfigs", () => {
 
     it("should merge disabled arrays without duplicates", () => {
       const base: OnlyMyOpenCodeConfig = {
-        disabled_hooks: ["comment-checker", "think-mode"],
+        disabled_hooks: ["think-mode"],
       };
 
       const override: OnlyMyOpenCodeConfig = {
@@ -110,7 +110,7 @@ describe("mergeConfigs", () => {
 
       const result = mergeConfigs(base, override);
 
-      expect(result.disabled_hooks).toContain("comment-checker");
+
       expect(result.disabled_hooks).toContain("think-mode");
       expect(result.disabled_hooks).toContain("session-recovery");
       expect(result.disabled_hooks?.length).toBe(3);

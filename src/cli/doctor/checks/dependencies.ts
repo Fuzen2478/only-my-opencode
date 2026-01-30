@@ -101,30 +101,7 @@ export async function checkAstGrepNapi(): Promise<DependencyInfo> {
   }
 }
 
-export async function checkCommentChecker(): Promise<DependencyInfo> {
-  const binaryCheck = await checkBinaryExists("comment-checker")
 
-  if (!binaryCheck.exists) {
-    return {
-      name: "Comment Checker",
-      required: false,
-      installed: false,
-      version: null,
-      path: null,
-      installHint: "Hook will be disabled if not available",
-    }
-  }
-
-  const version = await getBinaryVersion("comment-checker")
-
-  return {
-    name: "Comment Checker",
-    required: false,
-    installed: true,
-    version,
-    path: binaryCheck.path,
-  }
-}
 
 function dependencyToCheckResult(dep: DependencyInfo, checkName: string): CheckResult {
   if (dep.installed) {
@@ -154,10 +131,7 @@ export async function checkDependencyAstGrepNapi(): Promise<CheckResult> {
   return dependencyToCheckResult(info, CHECK_NAMES[CHECK_IDS.DEP_AST_GREP_NAPI])
 }
 
-export async function checkDependencyCommentChecker(): Promise<CheckResult> {
-  const info = await checkCommentChecker()
-  return dependencyToCheckResult(info, CHECK_NAMES[CHECK_IDS.DEP_COMMENT_CHECKER])
-}
+
 
 export function getDependencyCheckDefinitions(): CheckDefinition[] {
   return [
@@ -175,12 +149,6 @@ export function getDependencyCheckDefinitions(): CheckDefinition[] {
       check: checkDependencyAstGrepNapi,
       critical: false,
     },
-    {
-      id: CHECK_IDS.DEP_COMMENT_CHECKER,
-      name: CHECK_NAMES[CHECK_IDS.DEP_COMMENT_CHECKER],
-      category: "dependencies",
-      check: checkDependencyCommentChecker,
-      critical: false,
-    },
+
   ]
 }

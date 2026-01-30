@@ -4,7 +4,6 @@ import {
   createContextWindowMonitorHook,
   createSessionRecoveryHook,
   createSessionNotification,
-  createCommentCheckerHooks,
   createToolOutputTruncatorHook,
   createDirectoryAgentsInjectorHook,
   createDirectoryReadmeInjectorHook,
@@ -12,7 +11,6 @@ import {
   createThinkModeHook,
   createClaudeCodeHooksHook,
   createAnthropicContextWindowLimitRecoveryHook,
-
   createCompactionContextInjector,
   createRulesInjectorHook,
   createBackgroundNotificationHook,
@@ -21,7 +19,6 @@ import {
   createAgentUsageReminderHook,
   createNonInteractiveEnvHook,
   createInteractiveBashSessionHook,
-
   createThinkingBlockValidatorHook,
   createCategorySkillReminderHook,
   createRalphLoopHook,
@@ -81,9 +78,10 @@ import { log, detectExternalNotificationPlugin, getNotificationConflictWarning, 
 import { loadPluginConfig } from "./plugin-config";
 import { createModelCacheState, getModelLimit } from "./plugin-state";
 import { createConfigHandler } from "./plugin-handlers";
+import { version } from "../package.json"; // package.json에서 버전 정보 가져오기
 
 const OnlyMyOpenCodePlugin: Plugin = async (ctx) => {
-  log("[OnlyMyOpenCodePlugin] ENTRY - plugin loading", { directory: ctx.directory })
+  log("[OnlyMyOpenCodePlugin] ENTRY - plugin loading", { directory: ctx.directory, version })
   // Start background tmux check immediately
   startTmuxCheck();
 
@@ -127,9 +125,7 @@ const OnlyMyOpenCodePlugin: Plugin = async (ctx) => {
     }
   }
 
-  const commentChecker = isHookEnabled("comment-checker")
-    ? createCommentCheckerHooks(pluginConfig.comment_checker)
-    : null;
+
   const toolOutputTruncator = isHookEnabled("tool-output-truncator")
     ? createToolOutputTruncatorHook(ctx, {
         experimental: pluginConfig.experimental,
@@ -197,7 +193,7 @@ const OnlyMyOpenCodePlugin: Plugin = async (ctx) => {
     : null;
 
   const ralphLoop = isHookEnabled("ralph-loop")
-    ? createRalphLoopHook(ctx, {
+    ? createRalphLoopHook(ctx, version, { // pluginVersion 전달
         config: pluginConfig.ralph_loop,
         checkSessionExists: async (sessionId) => sessionExists(sessionId),
       })
@@ -558,7 +554,7 @@ const OnlyMyOpenCodePlugin: Plugin = async (ctx) => {
       await questionLabelTruncator["tool.execute.before"]?.(input, output);
       await claudeCodeHooks["tool.execute.before"](input, output);
       await nonInteractiveEnv?.["tool.execute.before"](input, output);
-      await commentChecker?.["tool.execute.before"](input, output);
+
       await directoryAgentsInjector?.["tool.execute.before"]?.(input, output);
       await directoryReadmeInjector?.["tool.execute.before"]?.(input, output);
       await rulesInjector?.["tool.execute.before"]?.(input, output);
@@ -637,7 +633,7 @@ const OnlyMyOpenCodePlugin: Plugin = async (ctx) => {
       await claudeCodeHooks["tool.execute.after"](input, output);
       await toolOutputTruncator?.["tool.execute.after"](input, output);
       await contextWindowMonitor?.["tool.execute.after"](input, output);
-      await commentChecker?.["tool.execute.after"](input, output);
+
       await directoryAgentsInjector?.["tool.execute.after"](input, output);
       await directoryReadmeInjector?.["tool.execute.after"](input, output);
       await rulesInjector?.["tool.execute.after"](input, output);

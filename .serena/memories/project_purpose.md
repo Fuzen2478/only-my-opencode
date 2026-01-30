@@ -1,0 +1,1 @@
+only-my-opencode is an AI Agent Harness and OpenCode plugin designed to enhance developer productivity. It provides multi-model orchestration, parallel background agents, and advanced LSP/AST tools to enable AI agents to code effectively, aiming for human-like code quality. It offers a comprehensive, batteries-included environment for agent-driven development.

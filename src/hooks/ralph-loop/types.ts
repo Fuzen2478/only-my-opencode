@@ -9,6 +9,7 @@ export interface RalphLoopState {
   prompt: string
   session_id?: string
   ultrawork?: boolean
+  pluginVersion?: string // Add pluginVersion to RalphLoopState
 }
 
 export interface RalphLoopOptions {

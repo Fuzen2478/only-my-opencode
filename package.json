@@ -1,6 +1,6 @@
 {
   "name": "@fuzen2478/only-my-opencode",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "The Best AI Agent Harness - Batteries-Included OpenCode Plugin with Multi-Model Orchestration, Parallel Background Agents, and Crafted LSP/AST Tools",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -57,7 +57,7 @@
     "@ast-grep/cli": "^0.40.0",
     "@ast-grep/napi": "^0.40.0",
     "@clack/prompts": "^0.11.0",
-    "@fuzen2478/comment-checker": "^0.6.1",
+
     "@modelcontextprotocol/sdk": "^1.25.1",
     "@opencode-ai/plugin": "^1.1.19",
     "@opencode-ai/sdk": "^1.1.19",

@@ -71,6 +71,7 @@ const DEFAULT_API_TIMEOUT = 3000
 
 export function createRalphLoopHook(
   ctx: PluginInput,
+  pluginVersion: string, // Add pluginVersion here
   options?: RalphLoopOptions
 ): RalphLoopHook {
   const sessions = new Map<string, SessionState>()
@@ -170,6 +171,7 @@ export function createRalphLoopHook(
         loopOptions?.maxIterations ?? config?.default_max_iterations ?? DEFAULT_MAX_ITERATIONS,
       completion_promise: loopOptions?.completionPromise ?? DEFAULT_COMPLETION_PROMISE,
       ultrawork: loopOptions?.ultrawork,
+      pluginVersion, // pluginVersion 추가
       started_at: new Date().toISOString(),
       prompt,
       session_id: sessionID,
@@ -264,10 +266,10 @@ export function createRalphLoopHook(
         clearState(ctx.directory, stateDir)
 
         const title = state.ultrawork
-          ? "ULTRAWORK LOOP COMPLETE!"
+          ? `ULTRAWORK LOOP COMPLETE! (v${state.pluginVersion ?? "Unknown"})`
           : "Ralph Loop Complete!"
         const message = state.ultrawork
-          ? `JUST ULW ULW! Task completed after ${state.iteration} iteration(s)`
+          ? `JUST ULW ULW! Task completed after ${state.iteration} iteration(s) (by only-my-opencode v${state.pluginVersion ?? "Unknown"})`
           : `Task completed after ${state.iteration} iteration(s)`
 
         await ctx.client.tui
@@ -408,14 +410,10 @@ export function createRalphLoopHook(
         }
         return
       }
-
-      if (sessionID) {
-        const sessionState = getSessionState(sessionID)
-        sessionState.isRecovering = true
-        setTimeout(() => {
-          sessionState.isRecovering = false
-        }, 5000)
-      }
+      // For all other errors (not MessageAbortedError), we intentionally do not set sessionState.isRecovering = true.
+      // This allows the loop to attempt continuation on the next session.idle event,
+      // as `sessionState.isRecovering` will not be set to true for 5 seconds.
+      // The event function will simply complete here without further action for these errors.
     }
   }
 

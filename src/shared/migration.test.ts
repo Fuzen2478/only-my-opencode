@@ -201,7 +201,7 @@ describe("migrateAgentNames", () => {
 describe("migrateHookNames", () => {
   test("migrates anthropic-auto-compact to anthropic-context-window-limit-recovery", () => {
     // #given: Config with legacy hook name
-    const hooks = ["anthropic-auto-compact", "comment-checker"]
+    const hooks = ["anthropic-auto-compact"]
 
     // #when: Migrate hook names
     const { migrated, changed, removed } = migrateHookNames(hooks)
@@ -209,7 +209,6 @@ describe("migrateHookNames", () => {
     // #then: Legacy hook name should be migrated
     expect(changed).toBe(true)
     expect(migrated).toContain("anthropic-context-window-limit-recovery")
-    expect(migrated).toContain("comment-checker")
     expect(migrated).not.toContain("anthropic-auto-compact")
     expect(removed).toEqual([])
   })
@@ -258,7 +257,7 @@ describe("migrateHookNames", () => {
 
   test("migrates sisyphus-orchestrator to atlas", () => {
     // #given: Config with legacy sisyphus-orchestrator hook
-    const hooks = ["sisyphus-orchestrator", "comment-checker"]
+    const hooks = ["sisyphus-orchestrator"]
 
     // #when: Migrate hook names
     const { migrated, changed, removed } = migrateHookNames(hooks)
@@ -266,21 +265,21 @@ describe("migrateHookNames", () => {
     // #then: sisyphus-orchestrator should be migrated to atlas
     expect(changed).toBe(true)
     expect(migrated).toContain("atlas")
-    expect(migrated).toContain("comment-checker")
+
     expect(migrated).not.toContain("sisyphus-orchestrator")
     expect(removed).toEqual([])
   })
 
   test("removes obsolete hooks and returns them in removed array", () => {
     // #given: Config with removed hooks from v3.0.0
-    const hooks = ["preemptive-compaction", "empty-message-sanitizer", "comment-checker"]
+    const hooks = ["preemptive-compaction", "empty-message-sanitizer"]
 
     // #when: Migrate hook names
     const { migrated, changed, removed } = migrateHookNames(hooks)
 
     // #then: Removed hooks should be filtered out
     expect(changed).toBe(true)
-    expect(migrated).toEqual(["comment-checker"])
+    expect(migrated).toEqual([])
     expect(removed).toContain("preemptive-compaction")
     expect(removed).toContain("empty-message-sanitizer")
     expect(removed).toHaveLength(2)

@@ -506,11 +506,11 @@ export async function addAuthPlugins(
     const plugins: string[] = existingConfig?.plugin ?? [];
 
     if (config.hasGemini) {
-      const version = await fetchLatestVersion("opencode-antigravity-auth");
+      const version = await fetchLatestVersion("opencode-google-antigravity-auth");
       const pluginEntry = version
-        ? `opencode-antigravity-auth@${version}`
-        : "opencode-antigravity-auth";
-      if (!plugins.some((p) => p.startsWith("opencode-antigravity-auth"))) {
+        ? `opencode-google-antigravity-auth@${version}`
+        : "opencode-google-antigravity-auth";
+      if (!plugins.some((p) => p.startsWith("opencode-google-antigravity-auth"))) {
         plugins.push(pluginEntry);
       }
     }

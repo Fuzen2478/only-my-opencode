@@ -58,7 +58,7 @@ export const HookNameSchema = z.enum([
   "context-window-monitor",
   "session-recovery",
   "session-notification",
-  "comment-checker",
+
   "grep-output-truncator",
   "tool-output-truncator",
   "directory-agents-injector",
@@ -196,10 +196,7 @@ export const BuiltinCategoryNameSchema = z.enum([
 
 export const CategoriesConfigSchema = z.record(z.string(), CategoryConfigSchema)
 
-export const CommentCheckerConfigSchema = z.object({
-  /** Custom prompt to replace the default warning message. Use {{comments}} placeholder for detected comments XML. */
-  custom_prompt: z.string().optional(),
-})
+
 
 export const DynamicContextPruningConfigSchema = z.object({
   /** Enable dynamic context pruning (default: false) */
@@ -350,7 +347,7 @@ export const OnlyMyOpenCodeConfigSchema = z.object({
   categories: CategoriesConfigSchema.optional(),
   claude_code: ClaudeCodeConfigSchema.optional(),
   sisyphus_agent: SisyphusAgentConfigSchema.optional(),
-  comment_checker: CommentCheckerConfigSchema.optional(),
+
   experimental: ExperimentalConfigSchema.optional(),
   auto_update: z.boolean().optional(),
   skills: SkillsConfigSchema.optional(),
@@ -371,7 +368,7 @@ export type HookName = z.infer<typeof HookNameSchema>
 export type BuiltinCommandName = z.infer<typeof BuiltinCommandNameSchema>
 export type BuiltinSkillName = z.infer<typeof BuiltinSkillNameSchema>
 export type SisyphusAgentConfig = z.infer<typeof SisyphusAgentConfigSchema>
-export type CommentCheckerConfig = z.infer<typeof CommentCheckerConfigSchema>
+
 export type ExperimentalConfig = z.infer<typeof ExperimentalConfigSchema>
 export type DynamicContextPruningConfig = z.infer<typeof DynamicContextPruningConfigSchema>
 export type SkillsConfig = z.infer<typeof SkillsConfigSchema>

@@ -2,7 +2,7 @@ export { createTodoContinuationEnforcer, type TodoContinuationEnforcer } from ".
 export { createContextWindowMonitorHook } from "./context-window-monitor";
 export { createSessionNotification } from "./session-notification";
 export { createSessionRecoveryHook, type SessionRecoveryHook, type SessionRecoveryOptions } from "./session-recovery";
-export { createCommentCheckerHooks } from "./comment-checker";
+
 export { createToolOutputTruncatorHook } from "./tool-output-truncator";
 export { createDirectoryAgentsInjectorHook } from "./directory-agents-injector";
 export { createDirectoryReadmeInjectorHook } from "./directory-readme-injector";
