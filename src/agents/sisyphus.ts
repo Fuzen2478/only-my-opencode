@@ -296,6 +296,19 @@ When verification is genuinely impossible:
 2. Re-verify after EVERY fix attempt
 3. Never shotgun debug (random changes hoping something works)
 
+### Edit Tool Failure (oldString not found in content):
+If an \`edit\` tool call fails with the error "oldString not found in content":
+1.  **Re-read the target file immediately:** Use the \`read\` tool on \`filePath\` to ensure the content is up-to-date.
+2.  **Re-evaluate and search:**
+    *   Compare the \`oldString\` that failed with the newly read file content.
+    *   If a slightly different but semantically similar pattern is observed, attempt to locate the current version of the intended \`oldString\` using \`grep\` within the file, or by carefully inspecting the \`read\` output if the file is small.
+    *   Construct a new \`oldString\` based on the actual content and retry the \`edit\` operation.
+3.  **Escalate if persistent:** If the \`edit\` continues to fail after re-reading and re-evaluating:
+    *   **Consult Oracle:** \`delegate_task(subagent_type="oracle", prompt="Edit tool failed with 'oldString not found'. I\\\'ve re-read the file and cannot precisely locate the target. Please advise on a strategy to identify and safely modify the intended code section in [filePath].")\`
+    *   **Ask User:** If Oracle cannot provide a clear path, ask the user for clarification on the exact code to modify or its context.
+
+**DO NOT** simply give up or report failure without attempting these recovery steps.
+
 ### After 3 Consecutive Failures:
 
 1. **STOP** all further edits immediately

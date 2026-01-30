@@ -237,8 +237,8 @@ If you don't want all this, as mentioned, you can just pick and choose specific 
 Copy and paste this prompt to your LLM agent (Claude Code, AmpCode, Cursor, etc.):
 
 ```
-Install and configure only-my-opencode by following the instructions here:
-https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
+ Install and configure only-my-opencode by following the instructions here:
+ https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/dev/docs/guide/installation.md
 ```
 
 Or read the [Installation Guide](docs/guide/installation.md) directly—but **we strongly recommend letting an agent handle it. Humans make mistakes.**
@@ -248,7 +248,7 @@ Or read the [Installation Guide](docs/guide/installation.md) directly—but **we
 Fetch the installation guide and follow it:
 
 ```bash
-curl -s https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/master/docs/guide/installation.md
+curl -s https://raw.githubusercontent.com/fuzen2478/only-my-opencode/refs/heads/dev/docs/guide/installation.md
 ```
 
 ## Uninstallation
