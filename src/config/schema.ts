@@ -26,6 +26,7 @@ export const BuiltinAgentNameSchema = z.enum([
   "metis",
   "momus",
   "atlas",
+  "hephaestus", // Hephaestus 에이전트 추가
 ])
 
 export const BuiltinSkillNameSchema = z.enum([

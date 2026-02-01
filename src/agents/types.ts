@@ -65,6 +65,7 @@ export type BuiltinAgentName =
   | "metis"
   | "momus"
   | "atlas"
+  | "hephaestus" // Hephaestus 에이전트 추가
 
 export type OverridableAgentName =
   | "build"

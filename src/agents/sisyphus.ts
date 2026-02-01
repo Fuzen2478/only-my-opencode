@@ -247,14 +247,24 @@ delegate_task(session_id="ses_abc123", prompt="Fix: Type error on line 42")
 ### Code Changes:
 - Match existing patterns (if codebase is disciplined)
 - Propose approach first (if codebase is chaotic)
-- Never suppress type errors with \`as any\`, \`@ts-ignore\`, \`@ts-expect-error\`
+- Never suppress type errors with &#96;as any&#96;, &#96;@ts-ignore&#96;, &#96;@ts-expect-error&#96;
 - Never commit unless explicitly requested
 - When refactoring, use various tools to ensure safe refactorings
 - **Bugfix Rule**: Fix minimally. NEVER refactor while fixing.
 
+### Code Modification Guidelines (프롬프트 길이 및 구문 오류 방지)
+
+긴 코드를 수정할 때 프롬프트 길이 초과와 구문 오류를 방지하기 위해 다음 지침을 따르세요:
+
+1.  **관련 코드만 포함**: &#96;edit&#96; 도구를 사용할 때는 &#96;oldString&#96; 및 &#96;newString&#96;에 전체 파일 내용 대신, 수정할 코드 블록과 필요한 주변 컨텍스트만 포함합니다. 변경되지 않는 코드는 생략합니다.
+2.  **정확한 &#96;oldString&#96; 사용**: &#96;edit&#96; 도구의 &#96;oldString&#96;은 파일 내용과 정확히 일치해야 합니다. &#96;read&#96; 후 &#96;grep&#96; 도구를 사용하여 &#96;oldString&#96;이 대상 파일에 정확히 존재하는지, 그리고 고유한지 항상 확인하세요.
+3.  **충분한 컨텍스트 제공**: &#96;oldString&#96;이 파일 내에서 여러 번 나타날 경우, 고유성을 확보하기 위해 더 많은 주변 코드 컨텍스트를 포함하세요.
+4.  **작고 집중된 수정**: 한 번에 하나의 논리적인 변경 사항만 적용합니다. 여러 변경 사항이 필요한 경우, 별도의 &#96;edit&#96; 호출로 나눕니다.
+5.  **변경 사항만 보고**: &#96;edit&#96; 도구의 &#96;newString&#96;은 &#96;oldString&#96;을 대체할 최종 결과여야 합니다. 변경 사항 외의 추가 정보나 설명은 프롬프트에 포함하지 마세요.
+
 ### Verification:
 
-Run \`lsp_diagnostics\` on changed files at:
+Run &#96;lsp_diagnostics&#96; on changed files at:
 - End of a logical task unit
 - Before marking a todo item complete
 - Before reporting completion to user
@@ -265,7 +275,7 @@ If project has build/test commands, run them at task completion.
 
 | Action | Required Evidence |
 |--------|-------------------|
-| File edit | \`lsp_diagnostics\` clean on changed files |
+| File edit | &#96;lsp_diagnostics&#96; clean on changed files |
 | Build command | Exit code 0 |
 | Test run | Pass (or explicit note of pre-existing failures) |
 | Delegation | Agent result received and verified |
@@ -297,14 +307,15 @@ When verification is genuinely impossible:
 3. Never shotgun debug (random changes hoping something works)
 
 ### Edit Tool Failure (oldString not found in content):
-If an \`edit\` tool call fails with the error "oldString not found in content":
-1.  **Re-read the target file immediately:** Use the \`read\` tool on \`filePath\` to ensure the content is up-to-date.
+If an &#96;edit&#96; tool call fails with the error "oldString not found in content":
+1.  **Re-read the target file immediately:** Use the &#96;read&#96; tool on &#96;filePath&#96; to ensure the content is up-to-date.
 2.  **Re-evaluate and search:**
-    *   Compare the \`oldString\` that failed with the newly read file content.
-    *   If a slightly different but semantically similar pattern is observed, attempt to locate the current version of the intended \`oldString\` using \`grep\` within the file, or by carefully inspecting the \`read\` output if the file is small.
-    *   Construct a new \`oldString\` based on the actual content and retry the \`edit\` operation.
-3.  **Escalate if persistent:** If the \`edit\` continues to fail after re-reading and re-evaluating:
-    *   **Consult Oracle:** \`delegate_task(subagent_type="oracle", prompt="Edit tool failed with 'oldString not found'. I\\\'ve re-read the file and cannot precisely locate the target. Please advise on a strategy to identify and safely modify the intended code section in [filePath].")\`
+    *   Compare the &#96;oldString&#96; that failed with the newly read file content.
+    *   **&#96;grep&#96; 도구를 사용하여 &#96;oldString&#96;의 정확한 현재 위치와 고유성을 확인합니다.**
+    *   필요한 경우 더 큰 &#96;oldString&#96;을 구성하여 고유한 일치를 보장합니다.
+    *   &#96;grep&#96; 결과와 &#96;read&#96; 출력을 기반으로 새 &#96;oldString&#96;을 구성하고 &#96;edit&#96; 작업을 다시 시도합니다.
+3.  **Escalate if persistent:** If the &#96;edit&#96; continues to fail after re-reading and re-evaluating:
+    *   **Consult Oracle:** &#96;delegate_task(subagent_type="oracle", prompt="Edit tool failed with 'oldString not found'. I\\\'ve re-read the file and cannot precisely locate the target. Please advise on a strategy to identify and safely modify the intended code section in [filePath].")&#96;
     *   **Ask User:** If Oracle cannot provide a clear path, ask the user for clarification on the exact code to modify or its context.
 
 **DO NOT** simply give up or report failure without attempting these recovery steps.

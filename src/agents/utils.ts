@@ -22,6 +22,7 @@ import {
 import { createMetisAgent } from "./metis";
 import { createAtlasAgent } from "./atlas";
 import { createMomusAgent } from "./momus";
+import { createHephaestusAgent, hephaestusPromptMetadata } from "./hephaestus"; // Hephaestus 에이전트 import 추가
 import type {
   AvailableAgent,
   AvailableCategory,
@@ -61,6 +62,7 @@ const agentSources: Record<BuiltinAgentName, AgentSource> = {
   // Note: Atlas is handled specially in createBuiltinAgents()
   // because it needs OrchestratorContext, not just a model string
   atlas: createAtlasAgent as unknown as AgentFactory,
+  hephaestus: createHephaestusAgent, // Hephaestus 에이전트 추가
 };
 
 /**
@@ -72,6 +74,7 @@ const agentMetadata: Partial<Record<BuiltinAgentName, AgentPromptMetadata>> = {
   librarian: LIBRARIAN_PROMPT_METADATA,
   explore: EXPLORE_PROMPT_METADATA,
   "multimodal-looker": MULTIMODAL_LOOKER_PROMPT_METADATA,
+  hephaestus: hephaestusPromptMetadata, // Hephaestus 메타데이터 추가
 };
 
 function isFactory(source: AgentSource): source is AgentFactory {

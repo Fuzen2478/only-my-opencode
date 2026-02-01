@@ -1,7 +1,7 @@
 # AGENTS KNOWLEDGE BASE
 
 ## OVERVIEW
-10 AI agents for multi-model orchestration. Sisyphus (primary), Atlas (orchestrator), oracle, librarian, explore, multimodal-looker, Prometheus, Metis, Momus, Sisyphus-Junior.
+11 AI agents for multi-model orchestration. Sisyphus (primary), Atlas (orchestrator), oracle, librarian, explore, multimodal-looker, Prometheus, Metis, Momus, Sisyphus-Junior, Hephaestus.
 
 ## STRUCTURE
 ```
@@ -17,6 +17,7 @@ agents/
 ├── metis.ts                    # Pre-planning analysis (Gap detection)
 ├── momus.ts                    # Plan reviewer (Ruthless fault-finding)
 ├── dynamic-agent-prompt-builder.ts  # Dynamic prompt generation
+├── hephaestus.ts               # High-difficulty code problem solver
 ├── types.ts                    # AgentModelConfig, AgentPromptMetadata
 ├── utils.ts                    # createBuiltinAgents(), resolveModelWithFallback()
 └── index.ts                    # builtinAgents export
@@ -35,6 +36,8 @@ agents/
 | Metis | anthropic/claude-sonnet-4-5 | 0.3 | Pre-planning analysis |
 | Momus | anthropic/claude-sonnet-4-5 | 0.1 | Plan validation |
 | Sisyphus-Junior | anthropic/claude-sonnet-4-5 | 0.1 | Category-spawned executor |
+| Hephaestus | gpt-5.2-codex-medium | 0.1 | High-difficulty code problem solver |
+
 
 ## HOW TO ADD
 1. Create `src/agents/my-agent.ts` exporting factory + metadata.
